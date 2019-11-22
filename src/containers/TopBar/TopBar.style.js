@@ -10,6 +10,7 @@ export const WrapperStyle = styled.div`
   align-items: stretch;
   width: 100%;
   box-sizing: border-box;
+  padding: 20px 38px 0;
   
   .left {
     display: flex;

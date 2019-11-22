@@ -1,7 +1,9 @@
+import {IMAGES} from './resources';
+
 const colors = {
 	// absolute
 	white: '#ffffff',
-	black: '#000000',
+	black: '#303030',
 	gray: '#c7c7c7',
 	// named
 	dark: '#444444',
@@ -10,6 +12,7 @@ const colors = {
 	warning: '#ffa000',
 	info: '#1976d1',
 	success: '#117700',
+	matte: '#F5F5F5',
 };
 
 export const THEME = {
@@ -36,9 +39,13 @@ export const THEME = {
 		inputError: colors.red,
 		header: colors.ghost,
 		footer: colors.success,
+		img: IMAGES.BACKGROUND,
 	},
 	height: {
 		header: 752,
 		footer: 32,
+	},
+	maxWidth: {
+		header: 1440,
 	}
 };

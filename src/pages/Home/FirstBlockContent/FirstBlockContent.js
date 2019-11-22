@@ -1,11 +1,11 @@
 import React from 'react';
-import {HeaderContentStyle} from './HeaderContent.style';
+import {FirstBlockContentStyle} from './FirstBlockContent.style';
 import FindPropertyManagers from './FindPropertyManagers/FindPropertyManagers';
 import TrendingLocations from './TrendingLocations/TrendingLocations';
 
-const HeaderContent = () => {
+const FirstBlockContent = () => {
   return (
-      <HeaderContentStyle>
+      <FirstBlockContentStyle>
           <div className="info-wrapper">
               <div className="big-describe">
                   <div>Find and compare local</div>
@@ -17,9 +17,9 @@ const HeaderContent = () => {
           </div>
           <FindPropertyManagers />
           <TrendingLocations />
-      </HeaderContentStyle>
+      </FirstBlockContentStyle>
   );
 };
 
-export default HeaderContent;
-export { HeaderContent };
+export default FirstBlockContent;
+export { FirstBlockContent };

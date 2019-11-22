@@ -1,11 +1,13 @@
 import React from 'react';
+import FirstBlockContent from './FirstBlockContent/FirstBlockContent';
+import SectionContent from './SectionContent/';
 
 const Home = () => {
   return (
     <>
-        <div>
-            Test
-        </div>
+        <FirstBlockContent />
+        <SectionContent sectionType="LANDLORD" />
+        <SectionContent sectionType="PROPERTY_MANAGER" />
     </>
   );
 };

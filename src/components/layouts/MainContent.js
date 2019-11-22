@@ -10,6 +10,5 @@ export const MainContent = styled.section`
   width: 100%;
   box-sizing: border-box;
   background-color: ${colors.white};
-  padding: 0 48px;
   min-height: calc(100vh - ${height.header}px - ${height.footer}px);
 `;

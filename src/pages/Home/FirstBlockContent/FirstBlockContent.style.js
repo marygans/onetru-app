@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import {THEME} from '../../../constants/theme';
 
-const { text } = THEME;
+const { text, bg } = THEME;
 
-export const HeaderContentStyle = styled.div`
-  margin-top: 128px;
-  padding: 0px 140px 0 42px;
+export const FirstBlockContentStyle = styled.div`
+  padding: 128px 140px 0 42px;
+  background-image: url("${bg.img}");
   
   .info-wrapper {
     padding-bottom: 40px;

@@ -13,7 +13,7 @@ export const TrendingLocationsWrapper = styled.div`
     margin-right: 5px;
   }
   
-  a {
+  .location {
     text-decoration: underline;
     margin-right: 5px;
   }
