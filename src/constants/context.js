@@ -47,6 +47,27 @@ export const CONTEXT = {
               context: 'Avoid negative reviews from bad clients.',
           }
       ]
+  },
+  FOOTER: {
+	    links: [
+          {
+              name: 'How it Works',
+              href: '/how_it_works',
+          },
+          {
+              name: 'FAQs',
+              href: '/faqs',
+          },
+          {
+              name: 'Contact us',
+              href: '/contact_us',
+          },
+          {
+              name: 'Blog',
+              href: '/blog',
+          }
+      ],
+      licence: '2019 OneTru. All Rights Reserved',
   }
 
 };

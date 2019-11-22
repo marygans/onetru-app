@@ -2,17 +2,17 @@ const BASE_URL = './static/img/';
 const BASE_ICONS_URL = `${BASE_URL}icons/`;
 
 export const LANDLORD = {
-  CHAT: `${BASE_ICONS_URL}landlord/chat.png`,
-  ELLIPSE: `${BASE_ICONS_URL}landlord/ellipse.png`,
-  MANAGERS: `${BASE_ICONS_URL}landlord/managers.png`,
-  SEARCH: `${BASE_ICONS_URL}landlord/search.png`,
+  CHAT: `${BASE_ICONS_URL}landlord/chat.svg`,
+  ELLIPSE: `${BASE_ICONS_URL}landlord/ellipse.svg`,
+  MANAGERS: `${BASE_ICONS_URL}landlord/managers.svg`,
+  SEARCH: `${BASE_ICONS_URL}landlord/search.svg`,
 };
 
 export const PROPERTY_MANAGER = {
-  LIGHT: `${BASE_ICONS_URL}property_manager/light.png`,
-  ELLIPSE: `${BASE_ICONS_URL}property_manager/ellipse.png`,
-  RATING: `${BASE_ICONS_URL}property_manager/rating.png`,
-  REFERRAL: `${BASE_ICONS_URL}property_manager/referral.png`,
+  LIGHT: `${BASE_ICONS_URL}property_manager/light.svg`,
+  ELLIPSE: `${BASE_ICONS_URL}property_manager/ellipse.svg`,
+  RATING: `${BASE_ICONS_URL}property_manager/rating.svg`,
+  REFERRAL: `${BASE_ICONS_URL}property_manager/referral.svg`,
 };
 
 export const IMAGES = {

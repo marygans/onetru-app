@@ -42,8 +42,8 @@ export const THEME = {
 		img: IMAGES.BACKGROUND,
 	},
 	height: {
-		header: 752,
-		footer: 32,
+		header: 0,
+		footer: 256,
 	},
 	maxWidth: {
 		header: 1440,
