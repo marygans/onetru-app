@@ -34,7 +34,7 @@ export const InfoWrapper = styled.div`
   
   .short-title {
     font-weight: bold;
-    padding: 32px 0 20px 0;
+    padding: 15px 0 20px 0;
   }
 
 `;

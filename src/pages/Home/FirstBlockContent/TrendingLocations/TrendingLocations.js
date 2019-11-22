@@ -2,14 +2,25 @@ import React from 'react';
 
 import {TrendingLocationsWrapper} from './TrendingLocations.style';
 
-const TrendingLocations = () => {
+const TrendingLocations = ({ trendingLocation }) => {
+  const { name, locations } = trendingLocation;
+
   return (
       <TrendingLocationsWrapper>
-        <span className="locations">Trending locations:</span>
+        <span className="locations">{name}:</span>
         <span>
-            <span className="location">Seattle,</span>
-            <span className="location">Chicago,</span>
-            <span className="location">Austin</span>
+          {
+            locations.map((location, i) => (
+              <span className="location" key={location + i}>
+                {location.name}
+                {
+                  i < locations.length - 1 ? (
+                    <>,</>
+                  ) : null
+                }
+              </span>
+            ))
+          }
         </span>
       </TrendingLocationsWrapper>
   );

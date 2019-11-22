@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+
 import {THEME} from '../../../constants/theme';
 
-const { text, colors } = THEME;
+const { colors } = THEME;
 
 export const SectionContentStyle = styled.div`
-  padding: 71px 50px;
+  padding: 61px 50px;
   color: ${colors.black};
   text-align: center;
   
@@ -17,6 +18,7 @@ export const SectionContentStyle = styled.div`
     font-weight: normal;
     font-size: 64px;
     line-height: 75px;
+    padding-bottom: 65px;
   }
   
   .info-wrapper {

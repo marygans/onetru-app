@@ -4,12 +4,12 @@ import {FindPropertyManagersStyled} from './FindPropertyManagers.style';
 import Input from '../../../../lib/Input/Input';
 import {Button} from '../../../../lib/Button';
 
-const FindPropertyManagers = () => {
+const FindPropertyManagers = ({placeholder, button}) => {
 
     return (
         <FindPropertyManagersStyled>
-            <Input name="findPropertyManagers" type="text" />
-            <Button className="searchBtn">Search</Button>
+            <Input name="findPropertyManagers" type="text" placeholder={placeholder} />
+            <Button className="searchBtn">{button}</Button>
         </FindPropertyManagersStyled>
     );
 };

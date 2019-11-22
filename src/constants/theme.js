@@ -4,7 +4,8 @@ const colors = {
 	// absolute
 	white: '#ffffff',
 	black: '#303030',
-	gray: '#c7c7c7',
+	gray: '#9D9D9D',
+	grayLight: '#E0E0E0',
 	// named
 	dark: '#444444',
 	ghost: '#878787',
@@ -12,6 +13,7 @@ const colors = {
 	warning: '#ffa000',
 	info: '#1976d1',
 	success: '#117700',
+	successDark: '#0D5701',
 	matte: '#F5F5F5',
 };
 

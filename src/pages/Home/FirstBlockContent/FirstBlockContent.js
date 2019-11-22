@@ -2,21 +2,23 @@ import React from 'react';
 import {FirstBlockContentStyle} from './FirstBlockContent.style';
 import FindPropertyManagers from './FindPropertyManagers/FindPropertyManagers';
 import TrendingLocations from './TrendingLocations/TrendingLocations';
+import {CONTEXT} from '../../../constants/context';
 
-const FirstBlockContent = () => {
+const FirstBlockContent = ({ sectionType }) => {
+  const { title, description, placeholder, trendingLocation, button } = CONTEXT[sectionType.toUpperCase()];
+
   return (
       <FirstBlockContentStyle>
           <div className="info-wrapper">
               <div className="big-describe">
-                  <div>Find and compare local</div>
-                  <div>Property Managers</div>
+                  <div>{title}</div>
               </div>
               <div className="small-describe">
-                  <span>Find the perfect property manager for your property today.</span>
+                  <span>{description}</span>
               </div>
           </div>
-          <FindPropertyManagers />
-          <TrendingLocations />
+          <FindPropertyManagers placeholder={placeholder} button={button} />
+          <TrendingLocations trendingLocation={trendingLocation} />
       </FirstBlockContentStyle>
   );
 };

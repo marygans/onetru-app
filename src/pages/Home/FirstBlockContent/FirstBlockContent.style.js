@@ -5,7 +5,7 @@ const { text, bg } = THEME;
 
 export const FirstBlockContentStyle = styled.div`
   padding: 128px 140px 0 42px;
-  background-image: url("${bg.img}");
+  background: url("${bg.img}") no-repeat center;
   
   .info-wrapper {
     padding-bottom: 40px;
