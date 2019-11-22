@@ -10,7 +10,7 @@ export const WrapperStyle = styled.div`
   align-items: stretch;
   width: 100%;
   box-sizing: border-box;
-  padding: 20px 38px 0;
+  padding: 18px 38px;
   
   .left {
     display: flex;
@@ -52,6 +52,15 @@ export const WrapperStyle = styled.div`
       a:last-child {
         margin-right: 0;
       }
+  }
+  
+  &.changed {
+  	background-color: ${text.success};
+  	
+  	.btn {
+  		background-color: ${text.invert};
+  		color: ${text.success};
+  	}
   }
   
 `;
