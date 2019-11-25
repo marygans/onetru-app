@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
 import { THEME } from '../../constants/theme';
+import {ICONS} from '../../constants/resources';
 
 const { text } = THEME;
+const { HEADER } = ICONS;
 
 export const WrapperStyle = styled.div`
   display: flex;
@@ -16,6 +18,20 @@ export const WrapperStyle = styled.div`
     display: flex;
   	justify-content: flex-start;
   	align-items: center;
+  	
+  	.logos-wrapper {
+  		width: 255px;
+  		height: 38px;
+  		
+  		.logo {
+		    height: 100%;
+		    position: relative;
+		    display: block;
+        background: url(${HEADER.FULL_LOGO_WHITE}) no-repeat;
+        background-size: 52%;
+  		}
+  	}
+  	
   }
   
   .right {

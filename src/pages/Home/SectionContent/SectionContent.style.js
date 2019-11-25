@@ -23,5 +23,6 @@ export const SectionContentStyle = styled.div`
   
   .info-wrapper {
     display: flex;
+    justify-content: center;
   }
 `;

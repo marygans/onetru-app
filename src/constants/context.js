@@ -60,7 +60,8 @@ export const CONTEXT = {
 		placeholder: 'Enter your email address',
 	},
 	FIRST_SECTION: {
-		title: 'Find and compare local Property Managers',
+		first_part_title: 'Find and compare local',
+		second_part_title: 'Property Managers',
 		description: 'Find the perfect property manager for your property today.',
 		placeholder: 'Enter your address, city or zip code',
 		button: 'Search',
