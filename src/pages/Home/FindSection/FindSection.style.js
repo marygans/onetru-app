@@ -10,6 +10,7 @@ export const FindSectionStyle = styled.div`
   .find-wrapper {
 	    display: flex;
 	    width: 100%;
+      justify-content: center;
 	    
 	    .find-input {
         margin-right: 38px;
