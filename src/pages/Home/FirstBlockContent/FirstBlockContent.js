@@ -15,7 +15,7 @@ const FirstBlockContent = ({ sectionType }) => {
   } = CONTEXT[sectionType.toUpperCase()];
 
   return (
-      <FirstBlockContentStyle>
+      <FirstBlockContentStyle id="first-block-on-landing-page">
           <div className="wrapper">
 	          <div className="info-wrapper">
 		          <div className="big-describe">
