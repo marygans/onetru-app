@@ -14,7 +14,12 @@ const TopBar = () => {
 
     return (
         <WrapperStyle ref={wrapperRef}>
-            <div className="left"></div>
+            <div className="left">
+              <div className="logos-wrapper">
+                <div className="logo" />
+              </div>
+            </div>
+
             <div className="right">
                 <Button className="btn">Get Started as Pro</Button>
                 <Link to={UI_ROUTES.register} className="link">Sign up</Link>
