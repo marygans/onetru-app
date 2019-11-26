@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 import {THEME} from '../../../constants/theme';
 
-const { text, bg } = THEME;
+const { text, bg, colors } = THEME;
 
 export const FirstBlockContentStyle = styled.div`
-  padding: 128px 140px 0 42px;
   background: url("${bg.img}") no-repeat center;
   background-size: cover;
   
@@ -13,6 +12,8 @@ export const FirstBlockContentStyle = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: ${colors.rootRectangle};
+    padding: 128px 140px 0 42px;
   }
   
   .info-wrapper {

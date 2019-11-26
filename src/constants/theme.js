@@ -15,6 +15,8 @@ const colors = {
 	success: '#117700',
 	successDark: '#0D5701',
 	matte: '#F5F5F5',
+	rootRectangle: 'rgba(37, 36, 36, 0.55)',
+	resultPageRectangle: 'rgba(0, 0, 0, 0.6)',
 };
 
 export const THEME = {
@@ -42,6 +44,7 @@ export const THEME = {
 		header: colors.ghost,
 		footer: colors.success,
 		img: IMAGES.BACKGROUND,
+		result: IMAGES.RESULT_BACKGROUND,
 	},
 	height: {
 		header: 0,
@@ -49,5 +52,5 @@ export const THEME = {
 	},
 	maxWidth: {
 		header: 1440,
-	}
+	},
 };

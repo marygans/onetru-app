@@ -7,7 +7,11 @@ function getScrollTop() {
 function getHeightFirstBlockOnLandingPage() {
   const firstBlock = document.getElementById('first-block-on-landing-page');
 
-  return firstBlock.getBoundingClientRect().height;
+  if (firstBlock) {
+    return firstBlock.getBoundingClientRect().height;
+  }
+
+  return 0;
 }
 
 const defaultGetNewTopPosition = scrolled => 0 - scrolled * 0.5 + 'px';

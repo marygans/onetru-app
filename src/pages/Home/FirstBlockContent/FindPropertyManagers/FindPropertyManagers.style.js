@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
 export const FindPropertyManagersStyled = styled.div`
-  width: 100%;
-  display: flex;
+  .form {
+  	display: flex;
+    width: 100%;
+  }
   
   .searchBtn {
     margin-left: 17px;

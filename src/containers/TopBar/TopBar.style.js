@@ -63,6 +63,10 @@ export const WrapperStyle = styled.div`
         text-decoration: none;
         border-left: 1px solid;
         padding-left: 18px;
+        
+        &.link-wrapper-by-logo {
+	        border: 0;
+	      }
       }
       
       a:last-child {
