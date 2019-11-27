@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 
+import {THEME} from '../../../../../constants/theme';
+
+const { colors } = THEME;
+
 export const ItemWrapper = styled.div`
 	max-width: 393px;
-	border: 1px solid #E5E5E5;
+	border: 1px solid ${colors.whiteWithEasilyGray};
 	box-sizing: border-box;
-	background: #FFFF;
+	background: ${colors.white};
 	
 	.image-wrapper {
 			img {
@@ -26,14 +30,14 @@ export const ItemWrapper = styled.div`
         padding: 15px 0 24px;
         
         .serviceType, .managementType {
-		      border: 2px solid #117700;
+		      border: 2px solid ${colors.success};
 					box-sizing: border-box;
 					border-radius: 11px;
 					font-style: normal;
 					font-weight: normal;
 					font-size: 24px;
 					line-height: 28px;
-					color: #117700;
+					color: ${colors.success};
 					padding: 10px 25px;
 	        display: inline-block;
 		    }
@@ -51,19 +55,19 @@ export const ItemWrapper = styled.div`
 					font-weight: 500;
 					font-size: 18px;
 					line-height: 21px;
-					border: 2px solid #117700;
+					border: 2px solid ${colors.success};
 					box-sizing: border-box;
 					border-radius: 3px;
 					padding: 19px 18px;
 					
 					&.compare {
-						color: #117700;
-						background-color: #FFF;
+						color: ${colors.success};
+						background-color: ${colors.white};
 						margin-right: 16px;
 					}
 					
 					&.send-a-message {
-						color: #FFFFFF;
+						color: ${colors.white};
 					}
 				}
 			}
@@ -76,7 +80,7 @@ export const ItemWrapper = styled.div`
 				.compare-input {
 					width: 26.97px;
 					height: 25.44px;
-					border: 1px solid #AFAFAF;
+					border: 1px solid ${colors.grayEasyLight};
 					box-sizing: border-box;
 					border-radius: 4px;
 				}
@@ -86,13 +90,13 @@ export const ItemWrapper = styled.div`
 					font-weight: normal;
 					font-size: 24px;
 					line-height: 28px;
-					color: #AFAFAF;
+					color: ${colors.whiteWithEasilyGray};
 				}
 			}
 	}
 	
 	.footer {
-		border-top: 1px solid #E5E5E5;
+		border-top: 1px solid ${colors.whiteWithEasilyGray};
     align-items: center;
     display: flex;
     font-style: normal;
@@ -100,7 +104,7 @@ export const ItemWrapper = styled.div`
 		font-size: 20px;
 		line-height: 23px;
 		
-		color: #8D8D8D;
+		color: ${colors.grayEasyDark};
     
     img {
     	padding-left: 18px;
@@ -111,7 +115,7 @@ export const ItemWrapper = styled.div`
     }
     
     .perMonth, .startPrice {
-    	color: #8D8D8D;
+    	color: ${colors.grayEasyDark};
     	font-weight: bold;
     }
     

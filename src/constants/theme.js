@@ -3,12 +3,17 @@ import {IMAGES} from './resources';
 const colors = {
 	// absolute
 	white: '#ffffff',
+	whiteWithEasilyGray: '#E5E5E5',
 	black: '#303030',
 	gray: '#9D9D9D',
+	grayEasyDark: '#8D8D8D',
 	grayLight: '#E0E0E0',
+	grayEasyLight: '#AFAFAF',
+	filterText: '#9A9A9A',
 	// named
 	dark: '#444444',
 	ghost: '#878787',
+	ghostWithDark: '#6B6B6B',
 	error: '#d32f2f',
 	warning: '#ffa000',
 	info: '#1976d1',

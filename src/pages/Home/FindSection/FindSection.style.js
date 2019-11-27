@@ -20,7 +20,6 @@ export const FindSectionStyle = styled.div`
 	      font-weight: 500;
 		    font-size: 36px;
 		    padding: 20px 49px;
-		    color: #ffffff;
 		    width: 277px;
 		    height: 83px;
 				color: ${colors.white};

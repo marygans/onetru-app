@@ -3,7 +3,7 @@ import React from 'react';
 import {CompareContentWrapper} from './CompareContent.style';
 import Button from '../../../lib/Button/Button';
 
-const CompareContent = ({ data, onResetCompare }) => {
+const CompareContent = ({ data, onResetCompare, showCompareMenu }) => {
 
 	return (
 		<CompareContentWrapper>
@@ -19,7 +19,7 @@ const CompareContent = ({ data, onResetCompare }) => {
 			</div>
 			<div className="control-wrapper">
 				<div>
-					<Button className="btn">
+					<Button className="btn" onClick={() => showCompareMenu()}>
 						<span>{"Compare Property Managers"}</span>
 						<span className="icon-boll">{data.length}</span>
 					</Button>

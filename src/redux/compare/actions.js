@@ -11,6 +11,9 @@ const TYPES = {
 	EMPTY_COMPARE: `${prefix} empty compare`,
 
 	REMOVE_ITEM_FROM_COMPARE: `${prefix} remove item from compare`,
+
+	SHOW_COMPARE_MENU: `${prefix} show compare menu`,
+	CLOSE_COMPARE_MENU: `${prefix} close compare menu`,
 };
 
 const actions = {
@@ -20,6 +23,8 @@ const actions = {
 	removeItemFromCompare: makeActionCreator(TYPES.REMOVE_ITEM_FROM_COMPARE, 'item'),
 	reset: makeActionCreator(TYPES.RESET_COMPARE),
 	empty: makeActionCreator(TYPES.EMPTY_COMPARE),
+	showCompareMenu: makeActionCreator(TYPES.SHOW_COMPARE_MENU),
+	closeCompareMenu: makeActionCreator(TYPES.CLOSE_COMPARE_MENU),
 };
 
 export default actions;

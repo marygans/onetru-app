@@ -32,6 +32,8 @@ export const RESULT_PAGE = {
   ARROW_DOWN: `${BASE_ICONS_URL}result_page/filter/arrow_down.svg`,
   HEART: `${BASE_ICONS_URL}result_page/item/heart.svg`,
   STAR: `${BASE_ICONS_URL}result_page/item/star.svg`,
+  OK: `${BASE_ICONS_URL}result_page/compare/error.svg`,
+  ERROR: `${BASE_ICONS_URL}result_page/compare/ok.svg`,
 };
 
 export const ICONS = {

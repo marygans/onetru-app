@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
+import {THEME} from '../../../constants/theme';
+
+const { colors } = THEME;
+
 export const CompareContentWrapper = styled.div`
-    border-top: 1px solid #E5E5E5;
+    border-top: 1px solid ${colors.whiteWithEasilyGray};
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     padding: 48px 30px 19px;
     display: grid;
@@ -24,7 +28,7 @@ export const CompareContentWrapper = styled.div`
 				font-size: 18px;
 				line-height: 21px;
 				text-align: center;
-				color: #6B6B6B;
+				color: ${colors.ghostWithDark};
     	}
     }
     
@@ -41,23 +45,23 @@ export const CompareContentWrapper = styled.div`
 			font-weight: 500;
 			font-size: 18px;
 			line-height: 21px;
-    	background: #117700;
+    	background: ${colors.success};
 			border-radius: 8px;
-			color: #FFFFFF;
+			color: ${colors.white};
 			padding: 21px 26px 21px 24px;
 			
 			.icon-boll {
 				display: flex;
 		    align-items: center;
 		    justify-content: center;
-				background: #FFFFFF;
+				background: ${colors.white};
 				width: 26.57px;
 				height: 26.67px;
 				border-radius: 50%;
 				font-weight: 500;
 				font-size: 18px;
 				line-height: 21px;
-				color: #117700;
+				color: ${colors.success};
 				margin-left: 19px;
 			}
     }
@@ -67,7 +71,7 @@ export const CompareContentWrapper = styled.div`
 			font-size: 36px;
 			line-height: 42px;
 			text-decoration-line: underline;
-			color: #117700;
+			color: ${colors.success};
 			padding-left: 47px;
 			cursor: pointer;
     }

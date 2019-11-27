@@ -24,8 +24,8 @@ export const FilterWrapper = styled.div`
 		border: 2px solid #9A9A9A;
 		box-sizing: border-box;
 		border-radius: 4px;
-		background: #E5E5E5;
-		color: #9A9A9A;
+		background: ${colors.whiteWithEasilyGray};
+		color: ${colors.filterText};
 		padding: 1px 44px 1px 23px;
 		-moz-appearance:none; /* Firefox */
     -webkit-appearance:none; /* Safari and Chrome */
