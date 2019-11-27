@@ -19,6 +19,8 @@ export const IMAGES = {
   BACKGROUND: `${BASE_URL}background.png`,
   RESULT_BACKGROUND: `${BASE_URL}result_background.png`,
   ITEM_IMG: `${BASE_URL}item/test.png`,
+  ITEM_IMG_2: `${BASE_URL}item/test2.png`,
+  ITEM_IMG_3: `${BASE_URL}item/test3.png`,
 };
 
 export const HEADER = {

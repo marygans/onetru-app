@@ -4,12 +4,16 @@ import {SecondBlockContentWrapper} from './SecondBlockContent.style';
 import Filter from './Filter/Filter';
 import Items from './Items/Items';
 
-const SecondBlockContent = () => {
+const SecondBlockContent = ({ isMaximumItemsAreCompare, result, addItemToCompare }) => {
 
 	return (
 		<SecondBlockContentWrapper>
 			<Filter />
-			<Items />
+			<Items
+				isMaximumItemsAreCompare={isMaximumItemsAreCompare}
+				result={result}
+				addItemToCompare={addItemToCompare}
+			/>
 		</SecondBlockContentWrapper>
 	);
 };

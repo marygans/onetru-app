@@ -1,31 +1,61 @@
 import React from 'react';
+import * as PropTypes from 'prop-types';
+import {Field, Formik} from 'formik';
 
 import {ItemWrapper} from './Item.style';
-import * as PropTypes from 'prop-types';
 import Button from '../../../../../lib/Button/Button';
 import {ICONS} from '../../../../../constants/resources';
 
-const Item = ({ item }) => {
-	
+const Item = ({ item, isMaximumItemsAreCompare, addItemToCompare }) => {
+
 	return (
 		<ItemWrapper>
-			<img src={item.img} alt="img" />
+			<div className="image-wrapper">
+				<img src={item.img} alt="img" />
+			</div>
+
 			<div className="detail-wrapper">
 				<div className="name">{item.name}</div>
-				<div>
+
+				<div className="type-wrapper">
 					<span className="serviceType">{item.serviceType}</span>
 					<span className="managementType">{item.managementType}</span>
 				</div>
+
 				<div className="button-wrapper">
-					<span><Button className="btn compare">Add to Compare</Button></span>
-					<span><Button className="btn send-a-message">Send a message</Button></span>
+					<span>
+						<Button className="btn compare" onClick={() => addItemToCompare(item)} disabled={isMaximumItemsAreCompare}>
+							Add to Compare
+						</Button>
+					</span>
+
+					<span>
+						<Button className="btn send-a-message">
+							Send a message
+						</Button>
+					</span>
 				</div>
-				<img src={ICONS.RESULT_PAGE.STAR} alt="rating"/>
+
+				<div className="compare-wrapper">
+					<Formik>
+						<Field
+							type="checkbox"
+							name="manual-only"
+							id="manual-only"
+							className="compare-input"
+							checked={item.isCompare}
+							disabled
+						/>
+					</Formik>
+					<span className="compare">Compare</span>
+				</div>
+
 			</div>
+
 			<div className="footer">
 				<img src={ICONS.RESULT_PAGE.HEART} alt="heart" />
 				<span className="startingAt">STARTING AT</span>
-				<span className="startPrice">{item.startingPrice}%</span>
+				<span className="startPrice">{item.startingPrice}</span>
 				<span className="perMonth">PER MONTH</span>
 			</div>
 		</ItemWrapper>
@@ -42,5 +72,5 @@ Item.propTypes = {
 	serviceType: PropTypes.string,
 	managementType: PropTypes.string,
 	rating: PropTypes.number,
-	startingPrice: PropTypes.number,
+	startingPrice: PropTypes.string,
 };

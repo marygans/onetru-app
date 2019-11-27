@@ -1,14 +1,9 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
-
-import {selectResult} from '../../../../redux/search/selectors';
 
 import Item from './Item/Item';
 import {ItemsWrapper} from './Items.style';
 
-const Items = () => {
-
-	const {result} = useSelector(selectResult);
+const Items = ({ isMaximumItemsAreCompare, result, addItemToCompare }) => {
 
 	return (
 		<ItemsWrapper>
@@ -17,6 +12,8 @@ const Items = () => {
 					key={i + 'item'}
 					className="item"
 					item={item}
+					isMaximumItemsAreCompare={isMaximumItemsAreCompare}
+					addItemToCompare={addItemToCompare}
 				/>
 			))
 			}

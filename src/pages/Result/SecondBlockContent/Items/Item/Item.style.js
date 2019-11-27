@@ -2,13 +2,18 @@ import styled from 'styled-components';
 
 export const ItemWrapper = styled.div`
 	max-width: 393px;
-	max-height: 605px;
 	border: 1px solid #E5E5E5;
 	box-sizing: border-box;
 	background: #FFFF;
 	
+	.image-wrapper {
+			img {
+				width: 100%;
+			}
+	}
+	
 	.detail-wrapper {
-	    padding: 19px 10px;
+	    padding: 0 10px 19px;
 	    
 	    .name {
 	    	font-weight: bold;
@@ -17,24 +22,29 @@ export const ItemWrapper = styled.div`
 				color: #303030;
 	    }
 	    
-	    .serviceType, .managementType {
-	    	border: 2px solid #117700;
-				box-sizing: border-box;
-				border-radius: 11px;
-				font-style: normal;
-				font-weight: normal;
-				font-size: 24px;
-				line-height: 28px;
-				color: #117700;
+	    .type-wrapper {
+        padding: 15px 0 24px;
+        
+        .serviceType, .managementType {
+		      border: 2px solid #117700;
+					box-sizing: border-box;
+					border-radius: 11px;
+					font-style: normal;
+					font-weight: normal;
+					font-size: 24px;
+					line-height: 28px;
+					color: #117700;
+					padding: 10px 25px;
+	        display: inline-block;
+		    }
+		    
+		    .serviceType {
+		      margin-right: 10px;
+		    }
+		  
 	    }
 	    
-	    .serviceType {
-	    	padding-left: 25px;
-	    }
-	   
-	    .managementType {
-        padding-left: 28px;
-	    }
+	    
 	    
 	    .button-wrapper {
 				.btn {
@@ -48,7 +58,8 @@ export const ItemWrapper = styled.div`
 					
 					&.compare {
 						color: #117700;
-						background-color: #E5E5E5;
+						background-color: #FFF;
+						margin-right: 16px;
 					}
 					
 					&.send-a-message {
@@ -56,10 +67,32 @@ export const ItemWrapper = styled.div`
 					}
 				}
 			}
+			
+			.compare-wrapper {
+	      padding: 25px 25px 0 25px;
+		    display: flex;
+		    justify-content: flex-end;
+			
+				.compare-input {
+					width: 26.97px;
+					height: 25.44px;
+					border: 1px solid #AFAFAF;
+					box-sizing: border-box;
+					border-radius: 4px;
+				}
+			
+				.compare {
+					font-style: normal;
+					font-weight: normal;
+					font-size: 24px;
+					line-height: 28px;
+					color: #AFAFAF;
+				}
+			}
 	}
 	
 	.footer {
-		border: 1px solid #E5E5E5;
+		border-top: 1px solid #E5E5E5;
     align-items: center;
     display: flex;
     font-style: normal;
