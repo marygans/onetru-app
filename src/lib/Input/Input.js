@@ -1,26 +1,29 @@
 import React from 'react';
-import * as PropTypes from 'prop-types';
 
 import { LibInput } from './Input.style';
+import { propTypes, defaultProps } from '../forms/prop-types';
 
-const Input = ({ type, name, ...restProps }) => {
+const Input = (props) => {
+	const {
+		field,
+		form,
+		...restProps
+	} = props;
+
 	return (
 		<LibInput
-			type={type}
-			name={name}
+			{...field}
 			{...restProps}
 		/>
 	);
 };
 
 Input.propTypes = {
-	type: PropTypes.string,
-	name: PropTypes.string,
+	...propTypes,
 };
 
 Input.defaultProps = {
-	type: 'text',
-	name: '',
+	...defaultProps,
 };
 
 export default Input;

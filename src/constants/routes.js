@@ -4,4 +4,8 @@ export const UI_ROUTES = {
   // Auth
   login: '/login',
   register: '/register',
+
+  //search results
+  search_results: '/search_results',
+  results_compare: '/results_compare',
 };
