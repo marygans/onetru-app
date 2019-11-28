@@ -2,6 +2,8 @@ import React from 'react';
 import {CompareModalWrapper} from './CompareModal.style';
 import Button from '../../../lib/Button/Button';
 import {COMPARE_PROPERTY_MANAGERS} from '../../../constants/compare';
+import TrTable from './TrTable/TrTable';
+import FirstTrTable from './FirstTrTable/FirstTrTable';
 
 const CompareModal = ({ data, closeCompareMenu }) => {
 	const { managementType, ownerServices, tenantServices, leasingServices } = COMPARE_PROPERTY_MANAGERS;
@@ -15,110 +17,41 @@ const CompareModal = ({ data, closeCompareMenu }) => {
 					<div className="info-wrapper">
 
 						<table>
-
-
+							<thead>
+								<FirstTrTable data={data} />
+							</thead>
 
 							<tbody>
-								<tr className="item-wrapper">
-									<th></th>
-									{
-										data && data.map((item, i) => (
-												<th key={i + item.name}>
-													<div className="item">
-														<img src={item.img} alt={item.name} />
-														<div className="name">{item.name}</div>
-														<Button className="btn send-a-message">{"Send a message"}</Button>
-													</div>
-												</th>
-											)
-										)
-									}
-								</tr>
+								<TrTable
+									fieldParentName={managementType.name}
+									fields={managementType.data}
+									managers={data}
+									typeField='managementType'
+								/>
 
-								<tr className="item-data">
-									<td className="typeName">{managementType.name}</td>
-								</tr>
+								<TrTable
+									fieldParentName={ownerServices.name}
+									fields={ownerServices.data}
+									managers={data}
+									typeField='ownerServices'
+								/>
 
-								{
-									managementType.data.map((item, i) => (
-										<tr className="item-data" key={i + item.key + 'managementType'}>
-											<td className="typeValue">{item.value}</td>
-											{
-												data.map((manager, i ) => (
-													<td key={i + manager.name + 'managementType'}>
-														<span className={manager[item.key] ? "ok" : "error"}></span>
-													</td>
-												))
-											}
-										</tr>
-									))
-								}
+								<TrTable
+									fieldParentName={tenantServices.name}
+									fields={tenantServices.data}
+									managers={data}
+									typeField='tenantServices'
+								/>
 
-								<tr className="item-data">
-									<td className="typeName">{ownerServices.name}</td>
-								</tr>
-
-								{
-									ownerServices.data.map((item, i) => (
-										<tr className="item-data" key={i + item.key + 'ownerServices'}>
-											<td className="typeValue">{item.value}</td>
-											{
-												data.map((manager, i ) => (
-													<td key={i + manager.name + 'ownerServices'}>
-														<span className={manager[item.key] ? "ok" : "error"}></span>
-													</td>
-												))
-											}
-										</tr>
-									))
-								}
-
-								<tr className="item-data">
-									<td className="typeName">{tenantServices.name}</td>
-								</tr>
-
-								{
-									tenantServices.data.map((item, i) => (
-										<tr className="item-data" key={i + item.key + 'tenantServices'}>
-											<td className="typeValue">{item.value}</td>
-											{
-												data.map((manager, i ) => (
-													<td key={i + manager.name + 'tenantServices'}>
-														<span className={manager[item.key] ? "ok" : "error"}></span>
-													</td>
-												))
-											}
-										</tr>
-									))
-								}
-
-								<tr className="item-data">
-									<td className="typeName">{leasingServices.name}</td>
-								</tr>
-
-								{
-									leasingServices.data.map((item, i) => (
-										<tr className="item-data" key={i + item.key + 'leasingServices'}>
-											<td className="typeValue">{item.value}</td>
-											{
-												data.map((manager, i ) => (
-													<td key={i + manager.name + 'leasingServices'}>
-														<span className={manager[item.key] ? "ok" : "error"}></span>
-													</td>
-												))
-											}
-										</tr>
-									))
-								}
-
+								<TrTable
+									fieldParentName={leasingServices.name}
+									fields={leasingServices.data}
+									managers={data}
+									typeField='leasingServices'
+									fieldOfPrice='leasingFee'
+								/>
 							</tbody>
-
 						</table>
-
-					</div>
-
-					<div className="table-wrapper">
-
 					</div>
 				</main>
 
@@ -126,6 +59,7 @@ const CompareModal = ({ data, closeCompareMenu }) => {
 					<Button className="btn back" onClick={() => closeCompareMenu()}>{"Back to results"}</Button>
 					<Button className="btn done" onClick={() => closeCompareMenu()}>{"Done"}</Button>
 				</footer>
+
 			</div>
 		</CompareModalWrapper>
 	)

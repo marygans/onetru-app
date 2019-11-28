@@ -5,6 +5,10 @@ import {THEME} from '../../../constants/theme';
 const { colors } = THEME;
 
 export const CompareContentWrapper = styled.div`
+		position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: ${colors.white};
     border-top: 1px solid ${colors.whiteWithEasilyGray};
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     padding: 48px 30px 19px;
@@ -20,6 +24,7 @@ export const CompareContentWrapper = styled.div`
     	
     	img {
     		width: 100%;
+    		height: 110px;
     	}
     	
     	span {

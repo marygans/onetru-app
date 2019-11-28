@@ -1,5 +1,9 @@
 import styled from 'styled-components';
+
 import {RESULT_PAGE} from '../../../constants/resources';
+import {THEME} from '../../../constants/theme';
+
+const { colors } = THEME;
 
 export const CompareModalWrapper = styled.div`
 	position: absolute;
@@ -7,8 +11,7 @@ export const CompareModalWrapper = styled.div`
 	height: 100%;
 	left: 0px;
 	top: 0px;
-	
-	background: rgba(0, 0, 0, 0.8);
+	z-index: 12;
 	
 	.info {
 		width: 1242px;
@@ -38,36 +41,65 @@ export const CompareModalWrapper = styled.div`
 			line-height: 28px;
 			border-radius: 3px;
 	    text-align: center;
-	    width: 258px;
 	    
 	    &.send-a-message {
 	    	background: #117700;
 	    	color: #FFFFFF;
+	    }
+	    
+	    &.done {
+	    	width: 257px
 	    }
   }
   
   table {
   	margin: 0;
     width: 100%;
-    padding: 29px 20px;
+    padding: 0 20px 29px 20px;
+    
+    th {
+    	padding: 0;
+    }
     
     tr:nth-of-type(odd) {
     	background: #F1F1F1;
     }
-  
+    
   	tr.item-wrapper {
   			display: grid;
-		    grid-template-columns: repeat(4, 258px);
-		    grid-gap: 2rem;
+		    grid-template-columns: repeat(4, 300px);
+		    grid-gap: 0rem;
 		    text-align: center;
 		    background: none;
-        padding-bottom: 26px;
 		    
 		    th {
   		
 		      .item {
+		      	padding-top: 29px;
+		      	padding-bottom: 26px;
+		      	border-left: 1px solid #D7D7D7;
+    				border-right: 1px solid #D7D7D7;
+    				
 		        img {
-		          width: 100%;
+              width: 260px;
+					    height: 210px;
+		        }
+		        
+		        &.best {
+    					background: rgba(184, 255, 187, 0.3);
+    					
+    					img {
+    						opacity: 0.7;
+    					}
+    				}
+		        
+		        .bestValue {
+		        	font-weight: bold;
+							font-size: 36px;
+							line-height: 42px;
+							text-align: center;
+							color: #0E6500;
+							height: 42px;
 		        }
 		        
 		        .name {
@@ -83,11 +115,20 @@ export const CompareModalWrapper = styled.div`
     
     tr {
 	    display: grid;
-	    grid-template-columns: repeat(4,260px);
-	    grid-gap: 2rem;
+	    grid-template-columns: repeat(4,300px);
+	    grid-gap: 0rem;
 	    text-align: center;
 
     	td {
+    		border-left: 1px solid rgba(241,241,241,0);
+    		
+    		&.empty {
+    			border-left: 1px solid #D7D7D7;
+    		}
+    		
+    		&.typeName, &.typeValue {
+			    padding-left: 33px;
+    		}
 
     		&.typeName {
 		      font-weight: bold;
@@ -115,8 +156,25 @@ export const CompareModalWrapper = styled.div`
 					&.error {
 						background: url(${RESULT_PAGE.ERROR}) no-repeat center;
 					}
+					
+					&.price {
+			      width: 100%;
+				    display: flex;
+				    align-items: center;
+				    justify-content: center;
+				    font-size: 22px;
+						line-height: 26px;
+						color: ${colors.priceColor};
+					}
 				}
     	}
+    	
+    	&:nth-of-type(2n) {
+	      td.detail {
+	      	border-left: 1px solid #D7D7D7;
+	      }
+	    }
+	    
     }
   	
   	

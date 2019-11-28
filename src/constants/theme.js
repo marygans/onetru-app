@@ -22,6 +22,7 @@ const colors = {
 	matte: '#F5F5F5',
 	rootRectangle: 'rgba(37, 36, 36, 0.55)',
 	resultPageRectangle: 'rgba(0, 0, 0, 0.6)',
+	priceColor: '#484848',
 };
 
 export const THEME = {

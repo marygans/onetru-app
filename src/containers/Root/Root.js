@@ -4,10 +4,13 @@ import { Header, MainContent, Footer } from '../../components/layouts';
 import { RestrictedRoutes } from '../../routes';
 import {TopBar} from '../TopBar';
 import FooterContent from './FooterContent/FooterContent';
+import Overlay from '../../components/Overlay/Overlay';
 
 const Root = () => {
     return (
         <>
+            <Overlay />
+
             <Header>
                 <TopBar />
             </Header>
