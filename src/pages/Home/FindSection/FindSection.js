@@ -2,8 +2,7 @@ import React from 'react';
 
 import {CONTEXT} from '../../../constants/context';
 import {FindSectionStyle} from './FindSection.style';
-import Input from '../../../lib/Input/Input';
-import {Button} from '../../../lib';
+import FindPropertyManagers from '../FirstBlockContent/FindPropertyManagers/FindPropertyManagers';
 
 const FindSection = ({sectionType}) => {
 	const context = CONTEXT[sectionType.toUpperCase()];
@@ -31,10 +30,7 @@ const FindSection = ({sectionType}) => {
 				</>
 			</div>
 
-			<div className='find-wrapper'>
-				<Input placeholder={placeholder} className='find-input' />
-				<Button className='btn'>{button}</Button>
-			</div>
+			<FindPropertyManagers placeholder={placeholder} button={button} sectionType={sectionType} />
 
 		</FindSectionStyle>
 	);

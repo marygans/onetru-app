@@ -30,7 +30,7 @@ const TopBar = () => {
 				{
 					isRootPage && (
 						<>
-							<Button className="btn">Get Started as Pro</Button>
+							<Button className="btn header-button">Get Started as Pro</Button>
 							<Link to={UI_ROUTES.register} className="link">Sign up</Link>
 							<Link to={UI_ROUTES.login} className="link">Login</Link>
 						</>

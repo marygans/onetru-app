@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import { THEME } from '../../constants/theme';
 import {ICONS} from '../../constants/resources';
+import {device} from '../../constants/devise';
 
 const { text } = THEME;
 const { HEADER } = ICONS;
@@ -12,16 +13,20 @@ export const WrapperStyle = styled.div`
   align-items: stretch;
   width: 100%;
   box-sizing: border-box;
-  padding: 18px 38px;
+  padding: 18px 38px 18px 64px;
   
   .left {
     display: flex;
   	justify-content: flex-start;
   	align-items: center;
   	
+  	a.link-wrapper-by-logo {
+  		padding: 0;
+  	}
+  	
   	.logos-wrapper {
   		width: 255px;
-  		height: 38px;
+  		height: 42px;
   		
   		.logo {
 		    height: 100%;
@@ -29,6 +34,14 @@ export const WrapperStyle = styled.div`
 		    display: block;
         background: url(${HEADER.FULL_LOGO_WHITE}) no-repeat;
         background-size: 52%;
+  		}
+  		
+  		@media ${device.tablet} {
+        width: 140px;
+  			
+  			.logo {
+  				background-size: 80%;
+  			}
   		}
   	}
   	
@@ -80,6 +93,55 @@ export const WrapperStyle = styled.div`
   	.btn {
   		background-color: ${text.invert};
   		color: ${text.success};
+  	}
+  }
+  
+  @media ${device.laptopT} {
+  	padding: 18px 42px 18px 42px;
+  }
+  
+  @media ${device.tablet} {
+  	.right {
+  		.btn.header-button {
+  			width: 146px;
+  			font-size: 12px;
+  			margin-right: 15px;
+  		}
+  		
+  		a.link {
+  		  font-size: 12px;
+  		  padding-left: 15px;
+        margin-right: 15px;
+      }
+  	}
+  }
+
+  
+  @media ${device.mobileXL} {
+   & {
+   	padding: 18px 15px 18px 15px;
+   }
+  }
+  
+  @media ${device.mobileT} {
+  	& {
+  		flex-direction: column;
+      align-items: center;
+      
+      .left {
+      	padding-bottom: 15px;
+      }
+      
+      .right {
+	      .btn {
+	      	padding: 9px 0;
+	      }
+	      
+	      a.link {
+	      	padding-left: 13px;
+    			margin-right: 13px;
+	      }
+      }
   	}
   }
   

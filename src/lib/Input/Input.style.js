@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import {THEME} from '../../constants/theme';
 
-const { bg, border, text, colors } = THEME;
+const { bg, border, text } = THEME;
 
 export const LibInput = styled.input`
 	width: 100%;
@@ -15,10 +15,4 @@ export const LibInput = styled.input`
   height: 83px;
   font-size: 36px;
   max-width: 898px;
-  
-  &::placeholder {
-    font-size: 36px;
-    color: ${colors.gray};
-    vertical-align: center;
-  }
 `;
