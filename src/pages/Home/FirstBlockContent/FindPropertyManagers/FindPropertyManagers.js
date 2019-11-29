@@ -11,7 +11,7 @@ const initValue = {
   search: '',
 };
 
-const FindPropertyManagers = ({placeholder, button}) => {
+const FindPropertyManagers = ({placeholder, button, sectionType}) => {
 
     const dispatch = useDispatch();
 
@@ -21,7 +21,7 @@ const FindPropertyManagers = ({placeholder, button}) => {
     };
 
     return (
-        <FindPropertyManagersStyled>
+        <FindPropertyManagersStyled className={sectionType}>
           <Formik
             enableReinitialize
             initialValues={initValue}
@@ -40,7 +40,8 @@ const FindPropertyManagers = ({placeholder, button}) => {
                   }
                 </Field>
 
-                <Button className="searchBtn" type='submit'>{button}</Button>
+                <Button className={sectionType ? sectionType + " searchBtn" : "searchBtn"} type='submit'>
+                  <span>{button}</span></Button>
               </Form>
             )}
           </Formik>

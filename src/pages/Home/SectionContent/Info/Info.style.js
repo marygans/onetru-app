@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import {THEME} from '../../../../constants/theme';
 import {ICONS} from '../../../../constants/resources';
+import {device} from '../../../../constants/devise';
 
 const { colors } = THEME;
 
@@ -29,12 +30,49 @@ export const InfoWrapper = styled.div`
       &.SEARCH {
         margin-right: 85px;
       }
-    }  
+    }
   }
   
   .short-title {
     font-weight: bold;
-    padding: 15px 0 20px 0;
+    padding-top: 15px;
+  }
+  
+  .describe {
+  	padding-top: 20px;
+  }
+  
+  @media ${device.laptop} {
+  	width: 350px;
+  }
+  
+  @media ${device.laptopL} {
+  	width: 300px;
+  	
+  	.icon-wrapper {
+  		height: 195px;
+			width: 195px;
+			background-size: 86%;
+			
+  		.icon {
+  			height: 100px;
+				width: 100px;
+				background-size: 75%;
+				
+				&.SEARCH {
+					margin-right: 54px;
+				}
+  		}
+  	}
+  	
+  	.short-title, .describe {
+  		font-size: 24px;
+      line-height: 30px;
+  	}
+  	
+  	.describe {
+  		padding-top: 10px;
+  	}
   }
 
 `;
