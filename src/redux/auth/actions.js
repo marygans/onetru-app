@@ -6,13 +6,15 @@ const prefix = '[Auth]';
 
 const TYPES = {
   LOGIN: `${prefix} login`,
-  LOGOUT: `${prefix} logout`,
+  SIGN_UP: `${prefix} sign up`,
+  SIGN_OUT: `${prefix} signOut`,
 };
 
 const actions = {
     ...TYPES,
     login: makeActionCreator(TYPES.LOGIN, 'credentials'),
-    logout: makeActionCreator(TYPES.LOGOUT),
+    signUp: makeActionCreator(TYPES.SIGN_UP, 'credentials'),
+    signOut: makeActionCreator(TYPES.SIGN_OUT),
 };
 
 export default actions;

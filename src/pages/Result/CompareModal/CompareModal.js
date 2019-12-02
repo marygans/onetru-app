@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {CompareModalWrapper} from './CompareModal.style';
 import Button from '../../../lib/Button/Button';
 import {COMPARE_PROPERTY_MANAGERS} from '../../../constants/compare';

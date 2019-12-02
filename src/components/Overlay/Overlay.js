@@ -1,15 +1,16 @@
 import React from 'react';
-import {OverlayWrapper} from './Overlay.style';
 import {useSelector} from 'react-redux';
-import {selectUiStatus} from '../../redux/compare/selector';
+
+import {OverlayWrapper} from './Overlay.style';
+import {selectClass} from '../../redux/overlay/selectors';
 
 const Overlay = () => {
 
-	const { isShow } = useSelector(selectUiStatus);
+	const { styleClass } = useSelector(selectClass);
 
 	return (
 		<>
-			{ isShow ? <OverlayWrapper /> : null }
+			{ styleClass ? <OverlayWrapper className={styleClass} /> : null }
 		</>
 	)
 };

@@ -3,7 +3,7 @@ export const UI_ROUTES = {
 
   // Auth
   login: '/login',
-  register: '/register',
+  signUp: '/signUp',
 
   //search results
   search_results: '/search_results',

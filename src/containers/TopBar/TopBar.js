@@ -1,4 +1,5 @@
 import React, {useRef} from 'react';
+import {useSelector} from 'react-redux';
 
 import {WrapperStyle} from './TopBar.style';
 import Link from '../../lib/Link';
@@ -6,7 +7,6 @@ import Button from '../../lib/Button';
 
 import {UI_ROUTES} from '../../constants/routes';
 import {useVerticalParallax} from '../../utils/hooks/use-vertical-parallax';
-import {useSelector} from 'react-redux';
 import {selectIsRootPage} from '../../redux/router/selectors';
 
 const TopBar = () => {
@@ -31,7 +31,7 @@ const TopBar = () => {
 					isRootPage && (
 						<>
 							<Button className="btn header-button">Get Started as Pro</Button>
-							<Link to={UI_ROUTES.register} className="link">Sign up</Link>
+							<Link to={UI_ROUTES.signUp} className="link">Sign up</Link>
 							<Link to={UI_ROUTES.login} className="link">Login</Link>
 						</>
 					)
