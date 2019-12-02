@@ -95,5 +95,41 @@ export const CONTEXT = {
 		],
 		licence: '2019 OneTru. All Rights Reserved',
 	},
+	RESULT: {
+		title: 'property managers near',
+		description: 'Specializing in Single Family Homes',
+	},
+	FILTER: {
+		title: 'Filter by:',
+		ratings: {
+			placeholder: 'Ratings',
+			data: [
+				{ name: 'Ratings', value: 'Ratings' },
+				{ name: '1', value: 1 },
+				{ name: '2', value: 2 },
+				{ name: '3', value: 3 },
+				{ name: '4', value: 4 },
+				{ name: '5', value: 5 },
+			],
+		},
+		managementTypes: {
+			placeholder: 'Management type',
+			data: [
+				{ name: 'Management type', value: 'Management type' },
+				{ name: 'Management type 1', value: 'Management type 1' },
+				{ name: 'Management type 2', value: 'Management type 2' },
+				{ name: 'Management type 3', value: 'Management type 3' },
+			],
+		},
+		serviceTypes: {
+			placeholder: 'Service type',
+			data: [
+				{ name: 'Service type', value: 'Service type' },
+				{ name: 'Service type 1', value: 'Service type 1' },
+				{ name: 'Service type 2', value: 'Service type 2' },
+				{ name: 'Service type 3', value: 'Service type 3' },
+			]
+		}
+	}
 
 };

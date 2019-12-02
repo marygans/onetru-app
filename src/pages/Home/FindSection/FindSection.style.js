@@ -1,31 +1,12 @@
 import styled from 'styled-components';
 import {THEME} from '../../../constants/theme';
+import {device} from '../../../constants/devise';
 
-const { colors } = THEME;
+const {colors} = THEME;
 
 export const FindSectionStyle = styled.div`
   text-align: center;
   padding: 0 113px;
-  
-  .find-wrapper {
-	    display: flex;
-	    width: 100%;
-      justify-content: center;
-	    
-	    .find-input {
-        margin-right: 38px;
-		  }
-		  
-		  .btn {
-	      font-weight: 500;
-		    font-size: 36px;
-		    padding: 20px 49px;
-		    color: #ffffff;
-		    width: 277px;
-		    height: 83px;
-				color: ${colors.white};
-	    }
-	}
   
   &.FIND_MANAGER_TODAY {
   	padding-top: 48px;
@@ -49,14 +30,7 @@ export const FindSectionStyle = styled.div`
 			font-size: 36px;
 			line-height: 42px;
  	  }
- 	  
- 	  .btn {
- 	  	background: ${colors.grayLight};
- 	  	font-weight: 500;
-			color: ${colors.success};
- 	  }
-
-
+ 
 	}
 		
 	&.QUESTIONS {
@@ -85,9 +59,45 @@ export const FindSectionStyle = styled.div`
 	  .info-wrapper {
 	  	padding-bottom: 40px;
 	  }
-	  
-	  
-	
+	 
 	}
+	
+	&.QUESTIONS, &.FIND_MANAGER_TODAY {
+	
+		@media ${device.laptop} {
+  		padding: 61px 20px;
+      font-size: 24px;
+    	line-height: 30px;
+  		
+  		.title {
+  			font-size: 48px;
+        line-height: 52px;
+        padding-bottom: 30px;
+  		}
+  	}
+  
+	  @media ${device.tabletT} {
+	    padding: 20px 20px;
+	    
+    	&, .description {
+	      font-size: 24px;
+	      line-height: 30px;
+    	}
+    	
+	    .title {
+  			font-size: 32px;
+        line-height: 52px;
+        padding-bottom: 0;
+  		}
+  		
+	  }
+	  
+	  @media ${device.tablet} {
+	  	&, .description {
+				font-size: 18px;	  	
+	  	}
+	  }
+	}
+	
   
 `;
