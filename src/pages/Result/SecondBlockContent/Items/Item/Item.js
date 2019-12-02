@@ -25,13 +25,13 @@ const Item = ({ item, isMaximumItemsAreCompare, addItemToCompare }) => {
 				<div className="button-wrapper">
 					<span>
 						<Button className="btn compare" onClick={() => addItemToCompare(item)} disabled={isMaximumItemsAreCompare}>
-							Add to Compare
+							<span>Add to Compare</span>
 						</Button>
 					</span>
 
 					<span>
 						<Button className="btn send-a-message">
-							Send a message
+							<span>Send a message</span>
 						</Button>
 					</span>
 				</div>

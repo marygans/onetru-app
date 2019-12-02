@@ -9,6 +9,7 @@ export const ItemWrapper = styled.div`
 	border: 1px solid ${colors.whiteWithEasilyGray};
 	box-sizing: border-box;
 	background: ${colors.white};
+  margin: 0 auto;
 	
 	.image-wrapper {
 			img {
@@ -59,7 +60,9 @@ export const ItemWrapper = styled.div`
 					border: 2px solid ${colors.success};
 					box-sizing: border-box;
 					border-radius: 3px;
-					padding: 19px 18px;
+					width: 166.94px;
+					padding-top: 19px;
+					padding-bottom: 19px;
 					
 					&.compare {
 						color: ${colors.success};
