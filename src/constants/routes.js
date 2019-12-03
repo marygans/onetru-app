@@ -4,6 +4,7 @@ export const UI_ROUTES = {
   // Auth
   login: '/login',
   signUp: '/signUp',
+  forgotPassword: '/forgotPassword',
 
   //search results
   search_results: '/search_results',

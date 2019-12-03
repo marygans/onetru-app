@@ -12,7 +12,6 @@ const initValue = {
 };
 
 const FindPropertyManagers = ({placeholder, button, sectionType}) => {
-
     const dispatch = useDispatch();
 
     const onSubmit = (values, actions) => {
@@ -41,7 +40,8 @@ const FindPropertyManagers = ({placeholder, button, sectionType}) => {
                 </Field>
 
                 <Button className={sectionType ? sectionType + " searchBtn" : "searchBtn"} type='submit'>
-                  <span>{button}</span></Button>
+                  <span>{button}</span>
+                </Button>
               </Form>
             )}
           </Formik>

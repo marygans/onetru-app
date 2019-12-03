@@ -57,7 +57,6 @@ const CompareModal = ({ data, closeCompareMenu }) => {
 				</main>
 
 				<footer>
-					<Button className="btn back" onClick={() => closeCompareMenu()}>{"Back to results"}</Button>
 					<Button className="btn done" onClick={() => closeCompareMenu()}>{"Done"}</Button>
 				</footer>
 

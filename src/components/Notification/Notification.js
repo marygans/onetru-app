@@ -8,13 +8,13 @@ const Notification = ({ data }) => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		const timer = setTimeout(() => dispatch(notificationActions.hide()), 4000);
+		const timer = setTimeout(() => dispatch(notificationActions.hide()), 3500);
 
 		return () => clearTimeout(timer);
 	}, []);
 
 	return (
-		<NotificationWrapper className="alert-danger">
+		<NotificationWrapper className={data.type}>
 			<span>{data.message}</span>
 		</NotificationWrapper>
 	)

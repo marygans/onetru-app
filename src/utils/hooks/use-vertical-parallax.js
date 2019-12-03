@@ -39,7 +39,7 @@ function useVerticalParallax(
     return () => {
       window.removeEventListener('scroll', changeTopPosition);
     };
-  }, []);
+  }, [changeTopPosition]);
 }
 
 export { useVerticalParallax };

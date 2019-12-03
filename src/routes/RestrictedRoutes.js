@@ -6,8 +6,8 @@ import {UI_ROUTES} from '../constants/routes';
 const Home = lazy(() => import('../pages/Home'));
 const Result = lazy(() => import ('../pages/Result'));
 const Page404 = lazy(() => import('../pages/Page404'));
-const Login = lazy(() => import('../pages/Login'));
-const SignUp = lazy(() => import('../pages/SignUp'));
+const Login = lazy(() => import('../pages/Auth/Login'));
+const SignUp = lazy(() => import('../pages/Auth/SignUp'));
 
 const RestrictedRoutes = () => {
 	return (

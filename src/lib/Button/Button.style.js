@@ -11,6 +11,7 @@ export const LibButton = styled.button`
   cursor: pointer;
   border: 1px;
   width: 276.53px;
+  outline: none;
   
   &:disabled {
   	cursor: not-allowed;

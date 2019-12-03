@@ -2815,6 +2815,11 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
+classnames@^2.2.6:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
+  integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
+
 clean-css@4.2.x:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-4.2.1.tgz#2d411ef76b8569b6d0c84068dabe85b0aa5e5c17"
@@ -3646,6 +3651,11 @@ detect-port-alt@1.1.6:
   dependencies:
     address "^1.0.1"
     debug "^2.6.0"
+
+dialog-polyfill@^0.4.7:
+  version "0.4.10"
+  resolved "https://registry.yarnpkg.com/dialog-polyfill/-/dialog-polyfill-0.4.10.tgz#c4ea68a0deed4abb59a6a2a025c548b278cd532e"
+  integrity sha512-j5yGMkP8T00UFgyO+78OxiN5vC5dzRQF3BEio+LhNvDbyfxWBsi3sfPArDm54VloaJwy2hm3erEiDWqHRC8rzw==
 
 diff-sequences@^24.9.0:
   version "24.9.0"
@@ -4516,6 +4526,14 @@ firebase@^7.4.0:
     "@firebase/storage" "0.3.19"
     "@firebase/util" "0.2.33"
 
+firebaseui@^4.1.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/firebaseui/-/firebaseui-4.3.0.tgz#3f2c162ff10147abc49e34269df818071869a7dc"
+  integrity sha512-QXANDyqtuEehvaMkD+C/r0oKaQRIpm8+AnMYa3lGH/LrBnnS0WSLNYSbRhHSUdgTxMnlOgeIs3kQgXc7viBvpQ==
+  dependencies:
+    dialog-polyfill "^0.4.7"
+    material-design-lite "^1.2.0"
+
 flat-cache@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/flat-cache/-/flat-cache-2.0.1.tgz#5d296d6f04bda44a4630a301413bdbc2ec085ec0"
@@ -4542,6 +4560,11 @@ flush-write-stream@^1.0.0:
   dependencies:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
+
+fn-name@~2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/fn-name/-/fn-name-2.0.1.tgz#5214d7537a4d06a4a301c0cc262feb84188002e7"
+  integrity sha1-UhTXU3pNBqSjAcDMJi/rhBiAAuc=
 
 follow-redirects@^1.0.0:
   version "1.9.0"
@@ -6606,6 +6629,11 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
+material-design-lite@^1.2.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/material-design-lite/-/material-design-lite-1.3.0.tgz#d004ce3fee99a1eeb74a78b8a325134a5f1171d3"
+  integrity sha1-0ATOP+6Zoe63Sni4oyUTSl8RcdM=
+
 md5.js@^1.3.4:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/md5.js/-/md5.js-1.3.5.tgz#b5d07b8e3216e3e27cd728d72f70d1e6a342005f"
@@ -8468,6 +8496,11 @@ prop-types@^15.5.4, prop-types@^15.6.2, prop-types@^15.7.2:
     object-assign "^4.1.1"
     react-is "^16.8.1"
 
+property-expr@^1.5.0:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/property-expr/-/property-expr-1.5.1.tgz#22e8706894a0c8e28d58735804f6ba3a3673314f"
+  integrity sha512-CGuc0VUTGthpJXL36ydB6jnbyOf/rAHFvmVrJlH+Rg0DqqLFQGAP6hIaxD/G0OAmBJPhXDHuEJigrp0e0wFV6g==
+
 protobufjs@^5.0.3:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/protobufjs/-/protobufjs-5.0.3.tgz#e4dfe9fb67c90b2630d15868249bcc4961467a17"
@@ -8714,6 +8747,13 @@ react-fast-compare@^2.0.1:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
   integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
+
+react-firebaseui@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/react-firebaseui/-/react-firebaseui-4.0.0.tgz#6e1892831b2a0ee86d2dcae16c4b724cf299d566"
+  integrity sha512-sQjVIXjahJ6YcjBRKmjW0wQb8wApi8AcFBa14H+TSEZWkRxPgQ1C4370P3FJubGXGEmxkwZfddqDk4/p5xW1uA==
+  dependencies:
+    firebaseui "^4.1.0"
 
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.9.0:
   version "16.12.0"
@@ -10020,6 +10060,11 @@ symbol-tree@^3.2.2:
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"
   integrity sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==
 
+synchronous-promise@^2.0.6:
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/synchronous-promise/-/synchronous-promise-2.0.10.tgz#e64c6fd3afd25f423963353043f4a68ebd397fd8"
+  integrity sha512-6PC+JRGmNjiG3kJ56ZMNWDPL8hjyghF5cMXIFOKg+NiwwEZZIvxTWd0pinWKyD227odg9ygF8xVhhz7gb8Uq7A==
+
 table@^5.2.3:
   version "5.4.6"
   resolved "https://registry.yarnpkg.com/table/-/table-5.4.6.tgz#1292d19500ce3f86053b05f0e8e7e4a3bb21079e"
@@ -10183,6 +10228,11 @@ toidentifier@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.0.tgz#7e1be3470f1e77948bc43d94a3c8f4d7752ba553"
   integrity sha512-yaOH/Pk/VEhBWWTlhI+qXxDFXlejDGcQipMlyxda9nthulaxLZUNcUqFxokp0vcYnvteJln5FNQDRrxj3YcbVw==
+
+toposort@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/toposort/-/toposort-2.0.2.tgz#ae21768175d1559d48bef35420b2f4962f09c330"
+  integrity sha1-riF2gXXRVZ1IvvNUILL0li8JwzA=
 
 tough-cookie@^2.3.3, tough-cookie@^2.3.4, tough-cookie@^2.5.0:
   version "2.5.0"
@@ -11058,3 +11108,15 @@ yargs@^3.10.0:
     string-width "^1.0.1"
     window-size "^0.1.4"
     y18n "^3.2.0"
+
+yup@^0.27.0:
+  version "0.27.0"
+  resolved "https://registry.yarnpkg.com/yup/-/yup-0.27.0.tgz#f8cb198c8e7dd2124beddc2457571329096b06e7"
+  integrity sha512-v1yFnE4+u9za42gG/b/081E7uNW9mUj3qtkmelLbW5YPROZzSH/KUUyJu9Wt8vxFJcT9otL/eZopS0YK1L5yPQ==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    fn-name "~2.0.1"
+    lodash "^4.17.11"
+    property-expr "^1.5.0"
+    synchronous-promise "^2.0.6"
+    toposort "^2.0.2"

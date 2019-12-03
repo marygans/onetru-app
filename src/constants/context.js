@@ -130,6 +130,22 @@ export const CONTEXT = {
 				{ name: 'Service type 3', value: 'Service type 3' },
 			]
 		}
-	}
-
+	},
+	SIGN_IN: {
+		title: 'Sign in manually',
+		button: 'SIGN IN',
+		form: {
+			email: 'Email',
+			password: 'Password',
+		}
+	},
+	SIGN_UP: {
+		title: 'Sign up manually',
+		button: 'SIGN UP',
+		form: {
+			email: 'Email',
+			password: 'Password',
+			confirmPassword: 'Confirm password',
+		}
+	},
 };
