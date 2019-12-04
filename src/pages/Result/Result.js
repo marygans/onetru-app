@@ -9,6 +9,8 @@ import {selectCompareData, selectorIsMaximumItemsAreCompare, selectUiStatus} fro
 import {selectResult} from '../../redux/search/selectors';
 import {compareActions} from '../../redux/compare/actions';
 import CompareModal from './CompareModal/CompareModal';
+import {overlayActions} from '../../redux/overlay/actions';
+import {OVERLAY_STYLE_CLASSES} from '../../constants/overlay';
 
 const Result = () => {
 	const dispatch = useDispatch();
@@ -27,10 +29,12 @@ const Result = () => {
 	};
 
 	const showCompareMenu = () => {
+		dispatch(overlayActions.show(OVERLAY_STYLE_CLASSES.COMPARE));
 		dispatch(compareActions.showCompareMenu());
 	};
 
 	const closeCompareMenu = () => {
+		dispatch(overlayActions.hide());
 		dispatch(compareActions.closeCompareMenu());
 	};
 

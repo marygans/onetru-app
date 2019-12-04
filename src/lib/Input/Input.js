@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 
 import { LibInput } from './Input.style';
 import { propTypes, defaultProps } from '../forms/prop-types';
@@ -10,8 +11,15 @@ const Input = (props) => {
 		...restProps
 	} = props;
 
+	const { name } = field;
+	const { errors, touched } = form;
+	const isError = Boolean(touched[name] && errors[name]);
+	const errorClass = cn('', {
+		'error': isError,
+	});
+
 	return (
-		<LibInput
+		<LibInput className={errorClass}
 			{...field}
 			{...restProps}
 		/>

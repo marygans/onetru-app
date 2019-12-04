@@ -44,6 +44,8 @@ class SelectorUtils {
 				}
 			}
 
+			return bestItem;
+
 		});
 
 		const newData = data.map((item) => {

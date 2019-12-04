@@ -36,9 +36,16 @@ export const RESULT_PAGE = {
   ERROR: `${BASE_ICONS_URL}result_page/compare/ok.svg`,
 };
 
+export const AUTH = {
+  GOOGLE: `${BASE_ICONS_URL}auth/g+.svg`,
+  FACEBOOK: `${BASE_ICONS_URL}auth/f.svg`,
+
+};
+
 export const ICONS = {
   HEADER,
   LANDLORD,
   PROPERTY_MANAGER,
   RESULT_PAGE,
+  AUTH,
 };

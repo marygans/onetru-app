@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {CompareModalWrapper} from './CompareModal.style';
 import Button from '../../../lib/Button/Button';
 import {COMPARE_PROPERTY_MANAGERS} from '../../../constants/compare';
@@ -56,7 +57,6 @@ const CompareModal = ({ data, closeCompareMenu }) => {
 				</main>
 
 				<footer>
-					<Button className="btn back" onClick={() => closeCompareMenu()}>{"Back to results"}</Button>
 					<Button className="btn done" onClick={() => closeCompareMenu()}>{"Done"}</Button>
 				</footer>
 

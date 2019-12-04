@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { THEME } from '../../constants/theme';
 import {ICONS} from '../../constants/resources';
 import {device} from '../../constants/devise';
+import {OVERLAY_STYLE_CLASSES} from '../../constants/overlay';
 
 const { text } = THEME;
 const { HEADER } = ICONS;
@@ -32,7 +33,7 @@ export const WrapperStyle = styled.div`
 		    height: 100%;
 		    position: relative;
 		    display: block;
-        background: url(${HEADER.FULL_LOGO_WHITE}) no-repeat;
+        background: url(${HEADER.FULL_LOGO_WHITE}) no-repeat center;
         background-size: 52%;
   		}
   		
@@ -57,6 +58,12 @@ export const WrapperStyle = styled.div`
       border: none;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       padding: 9px 23px;
+      
+      &.link {
+      	width: auto;
+      	background: none;
+      	box-shadow: none;
+      }
     }
     
     .link {
@@ -93,11 +100,27 @@ export const WrapperStyle = styled.div`
   	.btn {
   		background-color: ${text.invert};
   		color: ${text.success};
+  		
+  		&.link {
+  			color: white;
+  		}
   	}
   }
   
   @media ${device.laptopT} {
   	padding: 18px 42px 18px 42px;
+  }
+  
+  &.${OVERLAY_STYLE_CLASSES.AUTH} {
+	  @media ${device.tabletM} {
+		  flex-direction: column;
+      align-items: center;
+      padding: 8px 0;
+      
+      .right {
+      	display: none;
+      }
+	  }
   }
   
   @media ${device.tablet} {
@@ -143,6 +166,14 @@ export const WrapperStyle = styled.div`
 	      }
       }
   	}
+  }
+  
+  &.${OVERLAY_STYLE_CLASSES.AUTH} {
+   @media ${device.tabletM} {
+	   	.left {
+	   		padding-bottom: 0;
+	   	}
+	  }
   }
   
 `;

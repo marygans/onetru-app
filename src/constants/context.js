@@ -130,6 +130,56 @@ export const CONTEXT = {
 				{ name: 'Service type 3', value: 'Service type 3' },
 			]
 		}
+	},
+	SIGN_IN: {
+		title: 'Sign in manually',
+		button: 'SIGN IN',
+		form: {
+			email: 'Email',
+			password: 'Password',
+		},
+		mobile: {
+			landlord: {
+				title: 'Log in to view your saved property managers.',
+			},
+			property_manager: {
+				title: 'Log in to connect with landlords seeking your services.',
+			},
+			footer: {
+				link: 'No Account? Sign up today!',
+			}
+		}
+	},
+	SIGN_UP: {
+		title: 'Sign up manually',
+		button: 'SIGN UP',
+		form: {
+			email: 'Email',
+			password: 'Password',
+			confirmPassword: 'Confirm password',
+		},
+		mobile: {
+			landlord: {
+				title: 'Create an account to save property managers in your area.',
+			},
+			property_manager: {
+				title: 'Create an account to connect with landlords needing your services in your area.',
+			}
+		},
+		footer: {
+			link: 'Have an account? Log in',
+		}
+	},
+	AUTH_TABS: {
+		data: [
+			{
+				key: 'landlord',
+				value: 'landlord',
+			},
+			{
+				key: 'property_manager',
+				value: 'Property Manager',
+			},
+		],
 	}
-
 };

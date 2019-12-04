@@ -14,7 +14,7 @@ const colors = {
 	dark: '#444444',
 	ghost: '#878787',
 	ghostWithDark: '#6B6B6B',
-	error: '#d32f2f',
+	error: '#DF4930',
 	warning: '#ffa000',
 	info: '#1976d1',
 	success: '#117700',
@@ -46,7 +46,7 @@ export const THEME = {
 	bg: {
 		button: colors.success,
 		input: colors.white,
-		inputError: colors.red,
+		inputError: colors.error,
 		header: colors.ghost,
 		footer: colors.success,
 		img: IMAGES.BACKGROUND,
