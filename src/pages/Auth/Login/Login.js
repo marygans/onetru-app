@@ -13,9 +13,13 @@ import AuthNavigation from '../Navigation/AuthNavigation';
 import Button from '../../../lib/Button/Button';
 import {UI_ROUTES} from '../../../constants/routes';
 import Link from '../../../lib/Link';
+import {history} from '../../../redux/store';
+import Tabs from '../Tabs/Tabs';
 
 const Login = () => {
 	const dispatch = useDispatch();
+	const { SIGN_IN } = CONTEXT;
+
 	const handleSignIn = (values, actions) => {
 		const credentials = {
 			...values
@@ -32,37 +36,35 @@ const Login = () => {
 		}
 	}, [dispatch]);
 
+	const onGoToRoot = () => {
+		history.push(UI_ROUTES.root);
+	};
+
 	return (
 		<AuthNavigation>
-			<div className="tabs">
-				<span className="tab active">
-					Landlord
-				</span>
-
-				<span className="tab">
-					Property Manager
-				</span>
-			</div>
+			<Tabs />
 
 			<AuthWrapper>
 
 				<div className="link-mobile-wrapper">
-					<Link to={UI_ROUTES.signUp} className="link sign-up">No Account? Sign up today!</Link>
+					<Link to={UI_ROUTES.signUp} className="link sign-up">{SIGN_IN.mobile.footer.link}</Link>
 				</div>
 
-				<Button className="btn browse-as-guest">
+				<Button className="btn browse-as-guest" onClick={onGoToRoot}>
 					<span>Browse as Guest</span>
 				</Button>
 
 				<StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth} />
+
 				<div className="circleWrapper">
 					<div className="circle">
 						<div>OR</div>
 					</div>
 				</div>
+
 				<AuthForm
 					onSubmit={handleSignIn}
-					context={CONTEXT.SIGN_IN}
+					context={SIGN_IN}
 				/>
 			</AuthWrapper>
 		</AuthNavigation>

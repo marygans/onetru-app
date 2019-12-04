@@ -170,4 +170,16 @@ export const CONTEXT = {
 			link: 'Have an account? Log in',
 		}
 	},
+	AUTH_TABS: {
+		data: [
+			{
+				key: 'landlord',
+				value: 'landlord',
+			},
+			{
+				key: 'property_manager',
+				value: 'Property Manager',
+			},
+		],
+	}
 };

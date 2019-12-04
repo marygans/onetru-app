@@ -8,8 +8,11 @@ import {signInSchema, signUpSchema} from '../../../utils/validators/auth';
 import ErrorField from './ErrorField/ErrorField';
 import Link from '../../../lib/Link';
 import {UI_ROUTES} from '../../../constants/routes';
+import {useSelector} from 'react-redux';
+import {selectActiveTab} from '../../../redux/tabs/selectors';
 
 const AuthForm = ({onSubmit, context, isSignUp = false}) => {
+	const { activeTab } = useSelector(selectActiveTab);
 
 	const initValues = {
 		email: '',
@@ -37,7 +40,7 @@ const AuthForm = ({onSubmit, context, isSignUp = false}) => {
 						</h1>
 
 						<div className="describe">
-							{context.mobile.landlord.title}
+							{context.mobile[activeTab].title}
 						</div>
 
 						<div className="field">

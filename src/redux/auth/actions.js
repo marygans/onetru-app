@@ -9,6 +9,7 @@ const TYPES = {
 	SIGN_UP: `${prefix} sign up`,
 	SIGN_OUT: `${prefix} signOut`,
 	SET_CREDENTIALS: `${prefix} set credentials`,
+	SELECT_TAB: `${prefix} select tab`,
 };
 
 const actions = {
@@ -17,6 +18,7 @@ const actions = {
 	signUp: makeActionCreator(TYPES.SIGN_UP, 'credentials'),
 	signOut: makeActionCreator(TYPES.SIGN_OUT),
 	setCredentials: makeActionCreator(TYPES.SET_CREDENTIALS, 'credentials'),
+	selectTab: makeActionCreator(TYPES.SELECT_TAB, 'tab'),
 };
 
 export default actions;

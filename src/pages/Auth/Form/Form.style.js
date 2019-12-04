@@ -202,4 +202,23 @@ export const FormWrapper = styled.div`
 		
 		
 	}
+	
+	@media ${device.mobileL} {
+		padding: 0;
+		width: 100%;
+		
+		.field {
+			width: 100%;
+			
+			input {
+				width: 100%;
+			}
+		}
+		
+		.mobile-forgot-password, .footer, .footer > button.submit {
+			width: 100%;
+		}
+		
+		
+	}
 `;

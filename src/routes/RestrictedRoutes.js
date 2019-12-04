@@ -13,7 +13,7 @@ const RestrictedRoutes = () => {
 	return (
 		<Suspense fallback={<div/>}>
 			<Switch>
-				<Route exact path={UI_ROUTES.root} render={props => <Login {...props} />}/>
+				<Route exact path={UI_ROUTES.root} render={props => <Home {...props} />}/>
 				<Route exact path={UI_ROUTES.search_results} render={props => <Result {...props} />}/>
 				<Route exact path={UI_ROUTES.login} render={props => <Login {...props} />}/>
 				<Route exact path={UI_ROUTES.signUp} render={props => <SignUp {...props} />}/>

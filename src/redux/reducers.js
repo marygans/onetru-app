@@ -3,6 +3,7 @@ import Compare from './compare/reducer';
 import Profile from './profile/reducer';
 import Overlay from './overlay/reducer';
 import Notification from './notification/reducer';
+import Tabs from './tabs/reducer';
 
 const reducers = {
 	Search,
@@ -10,6 +11,7 @@ const reducers = {
 	Profile,
 	Overlay,
 	Notification,
+	Tabs,
 };
 
 export default reducers;

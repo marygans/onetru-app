@@ -152,16 +152,26 @@ export const AuthWrapper = styled.div`
   	.link-mobile-wrapper {
 	    display: block;
 	    width: 317.24px;
-	    text-alight: center;
+      text-align: center;
+    	padding-top: 18px;
 	    
 	    .link {
 	    	font-weight: 500;
 				font-size: 16px;
 				line-height: 19px;
 				color: #0D5A00;
+				text-decoration: none;
 	    }
 	  }
    
   	
   }
+  
+  @media ${device.mobileL} {
+		padding: 0 15px;
+		
+		.btn.browse-as-guest, #firebaseui_container {
+			width: 100%;
+		}
+	}
 `;

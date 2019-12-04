@@ -15,7 +15,7 @@ export const AuthNavigationWrapper = styled.div`
     margin: 50px 0;
   }
 	
-	.tabs {
+	.tab-list {
 		display: none;
 		
 		@media ${device.tabletM} {
@@ -23,15 +23,15 @@ export const AuthNavigationWrapper = styled.div`
 	    display: grid;
 	    grid-template-columns: 1fr 1fr;
 	    
-	    .tab {
-	      padding: 15px 5px;
+	    .tab-list-item {
+	      padding: 15px 5px 7px;
 	      border-bottom: 1px solid #DBDBDB;
 	      
-	      &.active {
+	      &.tab-list-active {
 	        border-bottom: 4px solid #0E6000;
 	      }
 	    }
 		}
-		
 	}
+
 `;

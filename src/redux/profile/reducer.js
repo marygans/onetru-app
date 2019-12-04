@@ -1,4 +1,5 @@
 import Immutable from 'seamless-immutable';
+
 import {profileActions} from './actions';
 
 const initState = Immutable.from({

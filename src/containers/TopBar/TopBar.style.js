@@ -33,7 +33,7 @@ export const WrapperStyle = styled.div`
 		    height: 100%;
 		    position: relative;
 		    display: block;
-        background: url(${HEADER.FULL_LOGO_WHITE}) no-repeat;
+        background: url(${HEADER.FULL_LOGO_WHITE}) no-repeat center;
         background-size: 52%;
   		}
   		
@@ -120,12 +120,6 @@ export const WrapperStyle = styled.div`
       .right {
       	display: none;
       }
-      
-      .logos-wrapper {
-      	.logo {
-      		background-position: center;
-      	} 
-      }
 	  }
   }
   
@@ -172,6 +166,14 @@ export const WrapperStyle = styled.div`
 	      }
       }
   	}
+  }
+  
+  &.${OVERLAY_STYLE_CLASSES.AUTH} {
+   @media ${device.tabletM} {
+	   	.left {
+	   		padding-bottom: 0;
+	   	}
+	  }
   }
   
 `;
