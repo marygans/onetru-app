@@ -36,6 +36,10 @@ const AuthForm = ({onSubmit, context, isSignUp = false}) => {
 							{context.title}
 						</h1>
 
+						<div className="describe">
+							{context.mobile.landlord.title}
+						</div>
+
 						<div className="field">
 							<Field name="email">
 								{
@@ -100,6 +104,10 @@ const AuthForm = ({onSubmit, context, isSignUp = false}) => {
 								className="remember-input"
 							/>
 							<span className="remember">Remember me</span>
+						</div>
+
+						<div className="mobile-forgot-password">
+							<Link to={UI_ROUTES.forgotPassword} className="link forgot-password">Forgot password?</Link>
 						</div>
 
 						<div className="footer">

@@ -12,7 +12,7 @@ import {selectIsAuth} from '../../redux/profile/selectors';
 import {authActions} from '../../redux/auth/actions';
 import {auth} from '../../firebase';
 
-const TopBar = () => {
+const TopBar = ({ styleClass }) => {
 	let wrapperRef = useRef();
 	const dispatch = useDispatch();
 	const {isRootPage} = useSelector(selectIsRootPage);
@@ -37,7 +37,7 @@ const TopBar = () => {
 	}, []);
 
 	return (
-		<WrapperStyle ref={wrapperRef}>
+		<WrapperStyle ref={wrapperRef} className={styleClass}>
 			<div className="left">
 				<Link to={UI_ROUTES.root} className="link-wrapper-by-logo">
 					<div className="logos-wrapper">

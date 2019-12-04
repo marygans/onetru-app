@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { THEME } from '../../constants/theme';
 import {ICONS} from '../../constants/resources';
 import {device} from '../../constants/devise';
+import {OVERLAY_STYLE_CLASSES} from '../../constants/overlay';
 
 const { text } = THEME;
 const { HEADER } = ICONS;
@@ -108,6 +109,24 @@ export const WrapperStyle = styled.div`
   
   @media ${device.laptopT} {
   	padding: 18px 42px 18px 42px;
+  }
+  
+  &.${OVERLAY_STYLE_CLASSES.AUTH} {
+	  @media ${device.tabletM} {
+		  flex-direction: column;
+      align-items: center;
+      padding: 8px 0;
+      
+      .right {
+      	display: none;
+      }
+      
+      .logos-wrapper {
+      	.logo {
+      		background-position: center;
+      	} 
+      }
+	  }
   }
   
   @media ${device.tablet} {

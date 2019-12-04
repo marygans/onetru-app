@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import {OVERLAY_STYLE_CLASSES} from '../../constants/overlay';
+import {device} from '../../constants/devise';
 
 export const OverlayWrapper = styled.div`
 		position: absolute;
@@ -17,5 +18,9 @@ export const OverlayWrapper = styled.div`
     
     &.${OVERLAY_STYLE_CLASSES.AUTH} {
     	background-color: #0D5C00;
+    	
+    	@media ${device.tabletM} {
+        background-color: white;
+    	}
     }
 `;

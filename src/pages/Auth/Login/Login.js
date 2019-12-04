@@ -9,7 +9,10 @@ import {overlayActions} from '../../../redux/overlay/actions';
 import {OVERLAY_STYLE_CLASSES} from '../../../constants/overlay';
 import {auth, uiConfig} from '../../../firebase';
 import {AuthWrapper} from '../AuthWrapper.style';
-
+import AuthNavigation from '../Navigation/AuthNavigation';
+import Button from '../../../lib/Button/Button';
+import {UI_ROUTES} from '../../../constants/routes';
+import Link from '../../../lib/Link';
 
 const Login = () => {
 	const dispatch = useDispatch();
@@ -30,18 +33,40 @@ const Login = () => {
 	}, [dispatch]);
 
 	return (
-		<AuthWrapper>
-			<StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth} />
-			<div className="circleWrapper">
-				<div className="circle">
-					<div>OR</div>
-				</div>
+		<AuthNavigation>
+			<div className="tabs">
+				<span className="tab active">
+					Landlord
+				</span>
+
+				<span className="tab">
+					Property Manager
+				</span>
 			</div>
-			<AuthForm
-				onSubmit={handleSignIn}
-				context={CONTEXT.SIGN_IN}
-			/>
-		</AuthWrapper>
+
+			<AuthWrapper>
+
+				<div className="link-mobile-wrapper">
+					<Link to={UI_ROUTES.signUp} className="link sign-up">No Account? Sign up today!</Link>
+				</div>
+
+				<Button className="btn browse-as-guest">
+					<span>Browse as Guest</span>
+				</Button>
+
+				<StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth} />
+				<div className="circleWrapper">
+					<div className="circle">
+						<div>OR</div>
+					</div>
+				</div>
+				<AuthForm
+					onSubmit={handleSignIn}
+					context={CONTEXT.SIGN_IN}
+				/>
+			</AuthWrapper>
+		</AuthNavigation>
+
 	)
 };
 

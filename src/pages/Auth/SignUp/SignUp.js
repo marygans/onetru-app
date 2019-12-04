@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
+import {StyledFirebaseAuth} from 'react-firebaseui';
 
 import authActions from '../../../redux/auth/actions';
 import {overlayActions} from '../../../redux/overlay/actions';
@@ -8,12 +9,11 @@ import AuthForm from '../Form/Form';
 import {CONTEXT} from '../../../constants/context';
 import {AuthWrapper} from '../AuthWrapper.style';
 import {auth, uiConfig} from '../../../firebase';
-import {StyledFirebaseAuth} from 'react-firebaseui';
 
 const SignUp = () => {
 	const dispatch = useDispatch();
 
-	const handleSignIn = (values, actions) => {
+	const handleSignUp = (values, actions) => {
 		const credentials = {
 			...values
 		};
@@ -38,7 +38,7 @@ const SignUp = () => {
 				</div>
 			</div>
 			<AuthForm
-				onSubmit={handleSignIn}
+				onSubmit={handleSignUp}
 				context={CONTEXT.SIGN_UP}
 				isSignUp={true}
 			/>

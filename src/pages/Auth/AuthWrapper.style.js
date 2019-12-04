@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
 import {ICONS} from '../../constants/resources';
+import {device} from '../../constants/devise';
 
 const { AUTH } = ICONS;
 
 export const AuthWrapper = styled.div`
  	position: relative;
-	z-index: 11;
   width: 710px;
-  margin: 300px auto 0;
   background: #FFFFFF;
   border: 1px solid #DCDCDC;
   box-sizing: border-box;
@@ -19,6 +18,10 @@ export const AuthWrapper = styled.div`
   justify-content: space-between;
   padding: 0 40px 15px;
   
+  .link-mobile-wrapper {
+  	display: none;
+  }
+
   #firebaseui_container .firebaseui-card-content {
   	padding: 0;
   	
@@ -88,5 +91,77 @@ export const AuthWrapper = styled.div`
 				color: #3E6373;
 			}
     }
+  }
+  
+  .btn.browse-as-guest {
+  	display: none;
+  }
+  
+  @media ${device.tabletM} {
+  	border: none;
+  	box-shadow: none;
+  	width: 100%;
+  	padding: 0 20px 15px;
+  }
+  
+  @media ${device.mobileXL} {
+  	flex-direction: column-reverse;
+  	
+  	.circleWrapper {
+  		display: none;
+  	}
+  	
+  	#firebaseui_container {
+  		width: 317.24px;
+  		
+	    .firebaseui-card-content {
+	    	.firebaseui-list-item {
+	    		.firebaseui-idp-button {
+			      width: 100%;
+	          max-width: 100%;
+						height: 48.87px;
+						border-radius: 5px;
+						display: flex;
+    				justify-content: center;
+    				box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			    }
+	    	}
+	    	
+	    }
+  	}
+  	
+  	.btn.browse-as-guest {
+  		display: block;
+  		width: 312.58px;
+  		height: 48.87px;
+  		border: 1px solid #0E6000;
+			box-sizing: border-box;
+			box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			border-radius: 5px;
+			background: white;
+			
+			span {
+				font-style: normal;
+				font-weight: 500;
+				font-size: 18px;
+				line-height: 21px;
+				color: #0D5C00;
+			}
+  	}
+  	
+  	.link-mobile-wrapper {
+	    display: block;
+	    width: 317.24px;
+	    text-alight: center;
+	    
+	    .link {
+	    	font-weight: 500;
+				font-size: 16px;
+				line-height: 19px;
+				color: #0D5A00;
+	    }
+	  }
+   
+  	
   }
 `;

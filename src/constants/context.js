@@ -137,6 +137,17 @@ export const CONTEXT = {
 		form: {
 			email: 'Email',
 			password: 'Password',
+		},
+		mobile: {
+			landlord: {
+				title: 'Log in to view your saved property managers.',
+			},
+			property_manager: {
+				title: 'Log in to connect with landlords seeking your services.',
+			},
+			footer: {
+				link: 'No Account? Sign up today!',
+			}
 		}
 	},
 	SIGN_UP: {
@@ -146,6 +157,17 @@ export const CONTEXT = {
 			email: 'Email',
 			password: 'Password',
 			confirmPassword: 'Confirm password',
+		},
+		mobile: {
+			landlord: {
+				title: 'Create an account to save property managers in your area.',
+			},
+			property_manager: {
+				title: 'Create an account to connect with landlords needing your services in your area.',
+			}
+		},
+		footer: {
+			link: 'Have an account? Log in',
 		}
 	},
 };

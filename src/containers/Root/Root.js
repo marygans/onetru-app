@@ -8,19 +8,21 @@ import FooterContent from './FooterContent/FooterContent';
 import Overlay from '../../components/Overlay/Overlay';
 import Notification from '../../components/Notification/Notification';
 import {selectNotificationData} from '../../redux/notification/selectors';
+import {selectClass} from '../../redux/overlay/selectors';
 
 const Root = () => {
 	const data = useSelector(selectNotificationData);
+	const { styleClass } = useSelector(selectClass);
 
 	return (
 		<>
 			{
 				data ? <Notification data={data}/> : null
 			}
-			<Overlay/>
+			<Overlay styleClass={styleClass} />
 
-			<Header>
-				<TopBar/>
+			<Header className={styleClass}>
+				<TopBar styleClass={styleClass} />
 			</Header>
 
 			<MainContent>
