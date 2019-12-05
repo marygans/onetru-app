@@ -181,5 +181,14 @@ export const CONTEXT = {
 				value: 'Property Manager',
 			},
 		],
+	},
+	GUEST_BROWSER: {
+		title: 'Don\'t Miss Out!',
+		describe: 'If you skip signing up, you can still use the app but won’t be able to save property managers or read all reviews.',
+		buttons: {
+			signUp: 'Sign up',
+			startBrowsing: 'Start Browsing',
+		}
+
 	}
 };
