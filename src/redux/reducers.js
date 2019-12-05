@@ -4,6 +4,7 @@ import Profile from './profile/reducer';
 import Overlay from './overlay/reducer';
 import Notification from './notification/reducer';
 import Tabs from './tabs/reducer';
+import GuestModal from './guestModal/reducer';
 
 const reducers = {
 	Search,
@@ -12,6 +13,7 @@ const reducers = {
 	Overlay,
 	Notification,
 	Tabs,
+	GuestModal,
 };
 
 export default reducers;

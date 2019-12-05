@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import {StyledFirebaseAuth} from 'react-firebaseui';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 import authActions from '../../../redux/auth/actions';
 import AuthForm from '../Form/Form';
@@ -13,12 +13,15 @@ import AuthNavigation from '../Navigation/AuthNavigation';
 import Button from '../../../lib/Button/Button';
 import {UI_ROUTES} from '../../../constants/routes';
 import Link from '../../../lib/Link';
-import {history} from '../../../redux/store';
 import Tabs from '../Tabs/Tabs';
+import {selectIsOpenGuestModal} from '../../../redux/guestModal/selectors';
+import GuestModal from '../GuestModal/GuestModal';
+import {guestModalActions} from '../../../redux/guestModal/actions';
 
 const Login = () => {
 	const dispatch = useDispatch();
 	const { SIGN_IN } = CONTEXT;
+	const { isOpen } = useSelector(selectIsOpenGuestModal);
 
 	const handleSignIn = (values, actions) => {
 		const credentials = {
@@ -36,13 +39,15 @@ const Login = () => {
 		}
 	}, [dispatch]);
 
-	const onGoToRoot = () => {
-		history.push(UI_ROUTES.root);
+	const onOpenGuestModal = () => {
+		dispatch(guestModalActions.show());
 	};
 
 	return (
 		<AuthNavigation>
-			<Tabs />
+			{
+				isOpen ? <GuestModal /> : <Tabs />
+			}
 
 			<AuthWrapper>
 
@@ -50,7 +55,7 @@ const Login = () => {
 					<Link to={UI_ROUTES.signUp} className="link sign-up">{SIGN_IN.mobile.footer.link}</Link>
 				</div>
 
-				<Button className="btn browse-as-guest" onClick={onGoToRoot}>
+				<Button className="btn browse-as-guest" onClick={onOpenGuestModal}>
 					<span>Browse as Guest</span>
 				</Button>
 
