@@ -5,6 +5,7 @@ import Overlay from './overlay/reducer';
 import Notification from './notification/reducer';
 import Tabs from './tabs/reducer';
 import GuestModal from './guestModal/reducer';
+import Filter from './filter/reducer';
 
 const reducers = {
 	Search,
@@ -14,6 +15,7 @@ const reducers = {
 	Notification,
 	Tabs,
 	GuestModal,
+	Filter,
 };
 
 export default reducers;
