@@ -3,6 +3,12 @@ import { createSelector } from 'reselect';
 import {selectActiveFilters} from '../filter/selectors';
 
 const result = ({ Search }) => Search.result;
+const hasMore = ({ Search }) => Search.hasMore;
+
+export const selectAllResult = createSelector(
+	[result],
+	(result) => ({result})
+);
 
 export const selectResult = createSelector(
 	[result, selectActiveFilters],
@@ -31,4 +37,9 @@ export const selectResult = createSelector(
 export const selectIsResult = createSelector(
 	[selectResult],
 	({result}) => Boolean(result && result.length),
+);
+
+export const selectHasMoreItems = createSelector(
+	[hasMore],
+	(hasMore) => ({hasMore})
 );

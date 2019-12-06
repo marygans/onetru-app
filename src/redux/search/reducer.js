@@ -1,14 +1,14 @@
 import Immutable from 'seamless-immutable';
 import actions from './actions';
-import {mockResult} from '../../utils/moks/result';
 
 const initState = Immutable.from({
-	result: [...mockResult],
+	result: [],
+	hasMore: true,
 });
 
 export default function search(state = initState, { type, payload }) {
 	switch (type) {
-		case actions.SEARCH_RESULT: {
+		case actions.SET_RESULT: {
 			return Immutable.set(state, 'result', payload.result);
 		}
 		case actions.UPDATE_RESULT_ITEM: {
@@ -34,6 +34,13 @@ export default function search(state = initState, { type, payload }) {
 					})
 				]
 			);
+		}
+		case actions.ADD_MORE_DATA: {
+			return Immutable.set(state, 'result', [...state.result, ...payload.result]);
+		}
+
+		case actions.UPDATE_HAS_MORE: {
+			return Immutable.set(state, 'hasMore', payload.hasMore);
 		}
 		default: {
 			return state;

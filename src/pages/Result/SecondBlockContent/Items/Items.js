@@ -1,22 +1,37 @@
 import React from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 import Item from './Item/Item';
 import {ItemsWrapper} from './Items.style';
 
-const Items = ({ isMaximumItemsAreCompare, result, addItemToCompare }) => {
+const Items = ({isMaximumItemsAreCompare, result, addItemToCompare, fetchMoreData, hasMore}) => {
 
 	return (
 		<ItemsWrapper>
-			{result && result.map((item, i) => (
-				<Item
-					key={i + 'item'}
-					className="item"
-					item={item}
-					isMaximumItemsAreCompare={isMaximumItemsAreCompare}
-					addItemToCompare={addItemToCompare}
-				/>
-			))
-			}
+
+			<InfiniteScroll
+				dataLength={result.length}
+				hasMore={hasMore}
+				next={fetchMoreData}
+				loader={<h4 className='info'>Loading...</h4>}
+				endMessage={
+					<p className='info'>
+						<b>Yay! You have seen it all</b>
+					</p>
+				}
+			>
+				{result && result.map((item, i) => (
+					<Item
+						key={i + 'item'}
+						className="item"
+						item={item}
+						isMaximumItemsAreCompare={isMaximumItemsAreCompare}
+						addItemToCompare={addItemToCompare}
+					/>
+				))
+				}
+			</InfiniteScroll>
+
 		</ItemsWrapper>
 	);
 
