@@ -26,7 +26,7 @@ export const WrapperStyle = styled.div`
   	}
   	
   	.logos-wrapper {
-  		width: 255px;
+  		width: 117px;
   		height: 42px;
   		
   		.logo {
@@ -34,16 +34,9 @@ export const WrapperStyle = styled.div`
 		    position: relative;
 		    display: block;
         background: url(${HEADER.FULL_LOGO_WHITE}) no-repeat center;
-        background-size: 52%;
+        background-size: 100%;
   		}
-  		
-  		@media ${device.tablet} {
-        width: 140px;
-  			
-  			.logo {
-  				background-size: 80%;
-  			}
-  		}
+  	
   	}
   	
   }

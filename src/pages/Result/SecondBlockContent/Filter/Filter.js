@@ -6,8 +6,8 @@ import {selectFilters, selectFiltersTitle} from '../../../../redux/filter/select
 import {filterActions} from '../../../../redux/filter/actions';
 
 const Filter = () => {
-	const { title } = useSelector(selectFiltersTitle);
-	const { filters } = useSelector(selectFilters);
+	const {title} = useSelector(selectFiltersTitle);
+	const {filters} = useSelector(selectFilters);
 	const dispatch = useDispatch();
 
 	const onChangeFilter = (event) => {
@@ -21,13 +21,14 @@ const Filter = () => {
 
 	return (
 		<FilterWrapper>
-			<span className="title">{title}</span>
-			<span>
+			<div className='selectWrapper'>
+				<span className="title">{title}</span>
+				<span>
 				{
 					filters.map((filter, i) => (
 						<select
 							key={i + filter.placeholder}
-							className="ratings"
+							className="filter"
 							name={filter.key}
 							id={filter.placeholder + filter.data.length}
 							onChange={onChangeFilter}
@@ -45,10 +46,12 @@ const Filter = () => {
 						</select>
 					))
 				}
-			</span>
+				</span>
+			</div>
+
 		</FilterWrapper>
 	)
 };
 
 export default Filter;
-export { Filter };
+export {Filter};

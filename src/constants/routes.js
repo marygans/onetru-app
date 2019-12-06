@@ -7,6 +7,6 @@ export const UI_ROUTES = {
   forgotPassword: '/forgotPassword',
 
   //search results
-  search_results: '/search_results',
+  search_results: '/results',
   results_compare: '/results_compare',
 };

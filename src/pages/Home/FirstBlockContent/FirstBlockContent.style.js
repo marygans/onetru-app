@@ -15,7 +15,7 @@ export const FirstBlockContentStyle = styled.div`
     align-items: center;
     justify-content: center;
     background: ${colors.rootRectangle};
-    padding: 128px 0 0 84px;
+    padding: 128px 0 0 87px;
     
     .info-wrapper {
 	    padding-bottom: 40px;
