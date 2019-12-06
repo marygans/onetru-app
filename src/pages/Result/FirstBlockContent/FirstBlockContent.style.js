@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {THEME} from '../../../constants/theme';
+import {device} from '../../../constants/devise';
 
 const { text, bg, colors } = THEME;
 
@@ -46,5 +47,10 @@ export const FirstBlockContentStyle = styled.div`
     }
   }
   
+  @media ${device.laptopT} {
+  	.wrapper {
+  		display: none;
+  	}
+  }
   
 `;

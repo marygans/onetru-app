@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import {THEME} from '../../../../constants/theme';
 import {ICONS} from '../../../../constants/resources';
+import {device} from '../../../../constants/devise';
 
 const { colors } = THEME;
 
@@ -15,7 +16,7 @@ export const FilterWrapper = styled.div`
 		padding-right: 15px;
 	}
 	
-	.ratings, .managementType, .serviceType {
+	.filter {
 		font-style: normal;
 		font-weight: normal;
 		font-size: 24px;
@@ -33,6 +34,17 @@ export const FilterWrapper = styled.div`
     background: url(${ICONS.RESULT_PAGE.ARROW_DOWN}) no-repeat;
     background-position-x: calc(100% - 12px);
   	background-position-y: 10px;
+	}
+	
+	@media ${device.laptopT} {
+		.title {
+			font-size: 24px;
+		}
+		
+		.filter {
+			font-size: 18px;
+			outline: none;
+		}
 	}
 
 `;
