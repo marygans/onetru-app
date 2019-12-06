@@ -1,10 +1,11 @@
-import { all, takeLatest, put, call } from 'redux-saga/effects';
+import { all, takeLatest, put, call, select } from 'redux-saga/effects';
 import { push } from 'connected-react-router';
 
 import actions from './actions';
-import {mockResult} from '../../utils/moks/result';
 import { UI_ROUTES } from '../../constants/routes';
 import {SearchService} from '../../services/SearchService';
+
+import {selectAllResult} from './selectors';
 
 
 function* search({ payload }) {
@@ -12,14 +13,22 @@ function* search({ payload }) {
 
 	let result = yield call(SearchService.search, search);
 
-	if (!result.length) { result = mockResult; }
-
-	yield put(actions.result(result));
+	yield put(actions.setResult(result));
 	yield put(push(UI_ROUTES.search_results))
+}
+
+function* fetchMoreData() {
+	const { result } = yield select(selectAllResult);
+
+	const newResult = yield call(SearchService.fetchMoreData, result.length);
+	yield put(actions.addMoreData(newResult));
+
+	newResult.length ? yield put(actions.updateHasMore(true)) : yield put(actions.updateHasMore(false));
 }
 
 export default function* searchSaga() {
 	yield all([
 		takeLatest(actions.SEARCH, search),
+		takeLatest(actions.FETCH_MORE_DATA, fetchMoreData),
 	]);
 }

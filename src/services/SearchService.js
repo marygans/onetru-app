@@ -1,9 +1,23 @@
+import {mockResult} from '../utils/moks/result';
 
 class SearchService {
 
-	search = async () => {
+	search = () => {
 		try {
-			return await new Promise((resolve => resolve([])));
+			return new Promise((resolve => resolve([...mockResult.slice(0, 4)])));
+		} catch (e) {
+			console.error(e);
+			return [];
+		}
+	}
+
+	fetchMoreData = (currentLength) => {
+		try {
+			return new Promise((resolve => {
+				setTimeout(() => {
+					resolve([...mockResult.slice(currentLength, currentLength + 2)])
+				}, 1500);
+			}));
 		} catch (e) {
 			console.error(e);
 			return [];
