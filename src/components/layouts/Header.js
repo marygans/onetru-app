@@ -5,6 +5,7 @@ import {OVERLAY_STYLE_CLASSES} from '../../constants/overlay';
 export const Header = styled.header`
   width: 100%;
   position: fixed;
+  z-index: 2;
   
   &.${OVERLAY_STYLE_CLASSES.AUTH} {
 	  @media ${device.tabletM} {

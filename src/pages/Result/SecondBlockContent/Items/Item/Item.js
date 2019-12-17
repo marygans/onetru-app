@@ -5,14 +5,18 @@ import {Field, Formik} from 'formik';
 import {ItemWrapper} from './Item.style';
 import Button from '../../../../../lib/Button/Button';
 import {ICONS} from '../../../../../constants/resources';
+import Link from '../../../../../lib/Link';
+import {UI_ROUTES} from '../../../../../constants/routes';
 
 const Item = ({ item, isMaximumItemsAreCompare, addItemToCompare }) => {
 
 	return (
 		<ItemWrapper>
-			<div className="image-wrapper">
-				<img src={item.img} alt="img" />
-			</div>
+			<Link to={`${UI_ROUTES.details}${item.id}`}>
+				<div className="image-wrapper">
+					<img src={item.img} alt="img" />
+				</div>
+			</Link>
 
 			<div className="detail-wrapper">
 				<div className="name">{item.name}</div>

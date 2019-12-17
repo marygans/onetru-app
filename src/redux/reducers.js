@@ -6,6 +6,7 @@ import Notification from './notification/reducer';
 import Tabs from './tabs/reducer';
 import GuestModal from './guestModal/reducer';
 import Filter from './filter/reducer';
+import Details from './detailPage/reducer';
 
 const reducers = {
 	Search,
@@ -16,6 +17,7 @@ const reducers = {
 	Tabs,
 	GuestModal,
 	Filter,
+	Details
 };
 
 export default reducers;

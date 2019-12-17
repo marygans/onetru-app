@@ -5,7 +5,7 @@ import actions from './actions';
 import { UI_ROUTES } from '../../constants/routes';
 import {SearchService} from '../../services/SearchService';
 
-import {selectAllResult} from './selectors';
+import {itemsSelector} from './selectors';
 
 
 function* search({ payload }) {
@@ -18,7 +18,7 @@ function* search({ payload }) {
 }
 
 function* fetchMoreData() {
-	const { result } = yield select(selectAllResult);
+	const { result } = yield select(itemsSelector);
 
 	const newResult = yield call(SearchService.fetchMoreData, result.length);
 	yield put(actions.addMoreData(newResult));

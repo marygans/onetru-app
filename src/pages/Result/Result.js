@@ -6,7 +6,7 @@ import FirstBlockContent from './FirstBlockContent/FirstBlockContent';
 import SecondBlockContent from './SecondBlockContent/SecondBlockContent';
 import CompareContent from './CompareContent/CompareContent';
 import {selectCompareData, selectorIsMaximumItemsAreCompare, selectUiStatus} from '../../redux/compare/selector';
-import {selectHasMoreItems, selectResult} from '../../redux/search/selectors';
+import {selectHasMoreItems, selectItem} from '../../redux/search/selectors';
 import {compareActions} from '../../redux/compare/actions';
 import CompareModal from './CompareModal/CompareModal';
 import {overlayActions} from '../../redux/overlay/actions';
@@ -18,7 +18,7 @@ const Result = () => {
 
 	const { data } = useSelector(selectCompareData);
 	const isMaximumItemsAreCompare = useSelector(selectorIsMaximumItemsAreCompare);
-	const {result} = useSelector(selectResult);
+	const {result} = useSelector(selectItem);
 	const { isShow } = useSelector(selectUiStatus);
 	const { hasMore } = useSelector(selectHasMoreItems);
 
