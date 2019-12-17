@@ -8,6 +8,7 @@ const Result = lazy(() => import ('../pages/Result'));
 const Page404 = lazy(() => import('../pages/Page404'));
 const Login = lazy(() => import('../pages/Auth/Login'));
 const SignUp = lazy(() => import('../pages/Auth/SignUp'));
+const DetailPage = lazy(() => import('../pages/DetailPage'));
 
 const RestrictedRoutes = () => {
 	return (
@@ -15,6 +16,7 @@ const RestrictedRoutes = () => {
 			<Switch>
 				<Route exact path={UI_ROUTES.root} render={props => <Home {...props} />}/>
 				<Route exact path={UI_ROUTES.search_results} render={props => <Result {...props} />}/>
+				<Route exact path={UI_ROUTES.details_page} render={props => <DetailPage {...props} />}/>
 				<Route exact path={UI_ROUTES.login} render={props => <Login {...props} />}/>
 				<Route exact path={UI_ROUTES.signUp} render={props => <SignUp {...props} />}/>
 				<Route path="*" render={props => <Page404 {...props} />}/>

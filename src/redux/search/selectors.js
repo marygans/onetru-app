@@ -5,12 +5,12 @@ import {selectActiveFilters} from '../filter/selectors';
 const result = ({ Search }) => Search.result;
 const hasMore = ({ Search }) => Search.hasMore;
 
-export const selectAllResult = createSelector(
+export const itemsSelector = createSelector(
 	[result],
 	(result) => ({result})
 );
 
-export const selectResult = createSelector(
+export const selectItem = createSelector(
 	[result, selectActiveFilters],
 	(result, {activeFilters}) => {
 
@@ -34,8 +34,8 @@ export const selectResult = createSelector(
 	}
 );
 
-export const selectIsResult = createSelector(
-	[selectResult],
+export const isSelectResult = createSelector(
+	[selectItem],
 	({result}) => Boolean(result && result.length),
 );
 

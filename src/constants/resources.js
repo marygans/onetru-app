@@ -1,4 +1,4 @@
-const BASE_URL = './static/img/';
+const BASE_URL = '/static/img/';
 const BASE_ICONS_URL = `${BASE_URL}icons/`;
 
 export const LANDLORD = {
@@ -42,10 +42,22 @@ export const AUTH = {
 
 };
 
+export const DETAILS = {
+  TIME: `${BASE_ICONS_URL}details/24.svg`,
+  ARMCHAIR: `${BASE_ICONS_URL}details/armchair.svg`,
+  GAVEL: `${BASE_ICONS_URL}details/gavel.svg`,
+  GROUP: `${BASE_ICONS_URL}details/group.svg`,
+  HANDYMAN_TOOLS: `${BASE_ICONS_URL}details/handymanTools.svg`,
+  VALET: `${BASE_ICONS_URL}details/valet.svg`,
+  HEART: `${BASE_ICONS_URL}details/heart.svg`,
+  EXPORT: `${BASE_ICONS_URL}details/export.svg`,
+};
+
 export const ICONS = {
   HEADER,
   LANDLORD,
   PROPERTY_MANAGER,
   RESULT_PAGE,
   AUTH,
+  DETAILS,
 };

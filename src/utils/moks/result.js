@@ -1,4 +1,6 @@
-import {IMAGES} from '../../constants/resources';
+import {ICONS, IMAGES} from '../../constants/resources';
+
+const uuidv4 = require('uuid/v4');
 
 class Item {
 	constructor(
@@ -49,6 +51,92 @@ class Item {
 		this.leaseRenewals = leaseRenewals;
 		this.listingsOnline = listingsOnline;
 		this.marketAnalysis = marketAnalysis;
+		this.smallInfo = [
+			{
+				key: 'away',
+				value: 22,
+				message: 'mi away',
+			},
+			{
+				key: 'employees',
+				value: 12,
+				message: 'employees',
+			},
+			{
+				key: 'clients',
+				value: 22,
+				message: 'clients currently',
+			},
+			{
+				key: 'per',
+				value: 10,
+				message: '% per month',
+			},
+		];
+		this.id = uuidv4();
+		this.images = [
+			'https://images1.apartments.com/i2/AHJm3KMpgTM7mv53CwlGLaLhi4z2IBSaRyrvycaRSLc/111/415-premier-evanston-il-building-photo.jpg',
+			'https://images1.apartments.com/i2/LngsloLt1kY8_ugPKI20arnW4wprv6cNzEfMhZUdI5Y/111/415-premier-evanston-il-building-photo.jpg',
+			'https://images1.apartments.com/i2/6_QNQ0XXMJ5tgtHmf9uEfA1QCwtNxaatKqahlSa1rOY/111/415-premier-evanston-il-building-photo.jpg',
+			'https://images1.apartments.com/i2/SbjvQDcrJAwSCyEtR-QwYGofbKdf7vwcw4uw7C74L3I/111/415-premier-evanston-il-building-photo.jpg',
+			'https://images1.apartments.com/i2/kdcfL7vLArQD4V-RTgwGXMklv0Q5WwL4_zsG5yBTP-w/111/415-premier-evanston-il-building-photo.jpg',
+			'https://images1.apartments.com/i2/i6M81g9EeoSU_6KhBiFk_1wcjh0pX1W_MDFigwh3xtc/111/415-premier-evanston-il-building-photo.jpg',
+			'https://images1.apartments.com/i2/WxExX7Y4wsJP7vD8WTs-WHaZQka1og_3SJwuFGWBLOk/111/415-premier-evanston-il-building-photo.jpg',
+			'https://images1.apartments.com/i2/GDVcqPy9Zf-J0i2qDlljDiAG9yKn9JAi646wwZrx_LU/111/415-premier-evanston-il-building-photo.jpg',
+		];
+		this.highlights = [
+			{
+				image: ICONS.DETAILS.TIME, name: '24 hour service calls',
+			},
+			{
+				image: ICONS.DETAILS.ARMCHAIR, name: 'Furnishing available',
+			},
+			{
+				image: ICONS.DETAILS.VALET, name: 'Biggest bang for your buck',
+			},
+			{
+				image: ICONS.DETAILS.GAVEL, name: 'Home showings',
+			},
+			{
+				image: ICONS.DETAILS.HANDYMAN_TOOLS, name: 'Handyman Services',
+			},
+			{
+				image: ICONS.DETAILS.GROUP, name: 'Legal Services',
+			},
+		];
+		this.description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+		this.reviews = [
+			{
+				img: 'data:image/jpeg;base64,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',
+				name: 'Deborah',
+				date: 'December 2019',
+				rating: 5,
+				description: 'Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.',
+			},
+			{
+				img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR49oabbBJcT1MWqDzhnz-qkHrs3ofG9_QoDY3oTUNBpXiVgHEf&s',
+				name: 'Giovanny',
+				date: 'December 2019',
+				rating: 3,
+				description: 'Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.',
+			},
+			{
+				img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHbYz0JzNu1MTPVeEkSj37hgVpbXcaAlWV0GOFNDxdcl71CAZiiQ&s',
+				name: 'Lora',
+				date: 'December 2019',
+				rating: 4,
+				description: 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. ',
+			},
+			{
+				img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3y5ZzPu8vBf2u_g_3pwPqTJNjRoD4buN1Zn5inVnL0DFDOdRASA&s',
+				name: 'Ferd',
+				date: 'December 2019',
+				rating: 3,
+				description: 'In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided.',
+			},
+		];
+		this.responseRate = ['English', 'Spanish'];
+		this.responseTime = '95%';
 	}
 }
 

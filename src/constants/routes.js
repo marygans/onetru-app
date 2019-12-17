@@ -9,4 +9,6 @@ export const UI_ROUTES = {
   //search results
   search_results: '/results',
   results_compare: '/results_compare',
+  details: 'details/',
+  details_page: '/details/:id'
 };
