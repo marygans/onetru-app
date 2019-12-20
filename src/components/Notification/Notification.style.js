@@ -5,7 +5,7 @@ export const keyFrameExampleOne = keyframes`
 
 export const NotificationWrapper = styled.div`
   z-index: 12;
-  position: absolute;
+  position: fixed;
   padding: 0.75rem 1.25rem;
   margin-bottom: 1rem;
   border: 1px solid transparent;

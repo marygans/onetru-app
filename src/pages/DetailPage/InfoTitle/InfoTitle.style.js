@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {ICONS, IMAGES} from '../../../constants/resources';
+import {ICONS} from '../../../constants/resources';
 
 export const InfoTitleStyle = styled.div`
 	

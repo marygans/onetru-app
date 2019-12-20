@@ -1,14 +1,15 @@
 import React, {useEffect} from 'react';
+import firebase from 'firebase';
 import {useDispatch, useSelector} from 'react-redux';
 import {StyledFirebaseAuth} from 'react-firebaseui';
 
-import authActions from '../../../redux/auth/actions';
+import uiConfig from '../../../firebase/uiFbConfig';
+
 import {overlayActions} from '../../../redux/overlay/actions';
 import {OVERLAY_STYLE_CLASSES} from '../../../constants/overlay';
 import AuthForm from '../Form/Form';
 import {CONTEXT} from '../../../constants/context';
 import {AuthWrapper} from '../AuthWrapper.style';
-import {auth, uiConfig} from '../../../firebase';
 import AuthNavigation from '../Navigation/AuthNavigation';
 import Link from '../../../lib/Link';
 import {UI_ROUTES} from '../../../constants/routes';
@@ -17,6 +18,7 @@ import Tabs from '../Tabs/Tabs';
 import {selectIsOpenGuestModal} from '../../../redux/guestModal/selectors';
 import GuestModal from '../GuestModal/GuestModal';
 import {guestModalActions} from '../../../redux/guestModal/actions';
+import {signUpWithEmailAndPassword} from '../../../redux/auth/actions';
 
 const SignUp = () => {
 	const dispatch = useDispatch();
@@ -27,8 +29,7 @@ const SignUp = () => {
 		const credentials = {
 			...values
 		};
-
-		dispatch(authActions.signUp(credentials));
+		dispatch(signUpWithEmailAndPassword(credentials));
 	};
 
 	useEffect(() => {
@@ -58,7 +59,7 @@ const SignUp = () => {
 					<span>Browse as Guest</span>
 				</Button>
 
-				<StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth} />
+				<StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
 
 				<div className="circleWrapper">
 					<div className="circle">

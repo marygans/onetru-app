@@ -12,7 +12,7 @@ function* search({ payload }) {
 	const { search } = payload;
 
 	let result = yield call(SearchService.search, search);
-
+	console.log('result', result);
 	yield put(actions.setResult(result));
 	yield put(push(UI_ROUTES.search_results))
 }

@@ -10,7 +10,7 @@ export const ErrorFieldWrapper = styled.div`
 	
   &.form-error {
   	position: relative;
-    opacity: 0;
+    opacity: 1;
     transition: all 0.15s linear;
     font-size: 14px;
     color: ${text.error};

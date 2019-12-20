@@ -10,6 +10,8 @@ import Link from '../../../lib/Link';
 import {UI_ROUTES} from '../../../constants/routes';
 import {useSelector} from 'react-redux';
 import {selectActiveTab} from '../../../redux/tabs/selectors';
+import {Switch} from 'antd';
+import InfoType from './InfoType';
 
 const AuthForm = ({onSubmit, context, isSignUp = false}) => {
 	const { activeTab } = useSelector(selectActiveTab);
@@ -17,7 +19,8 @@ const AuthForm = ({onSubmit, context, isSignUp = false}) => {
 	const initValues = {
 		email: '',
 		password: '',
-		checkbox: false,
+		remember: false,
+		isChangeTypeOfUser: false,
 	};
 
 	const initValuesSignUp = {
@@ -33,7 +36,7 @@ const AuthForm = ({onSubmit, context, isSignUp = false}) => {
 				validationSchema={isSignUp ? signUpSchema : signInSchema}
 				onSubmit={onSubmit}
 			>
-				{() => (
+				{({values}) => (
 					<Form id="login-form">
 						<h1>
 							{context.title}
@@ -80,31 +83,42 @@ const AuthForm = ({onSubmit, context, isSignUp = false}) => {
 
 						{
 							isSignUp ?
-								<div className="field">
-									<Field name="confirmPassword">
-										{(fieldProps) => (
-											<>
-												<Input
-													required
-													autoComplete="password"
-													type="password"
-													placeholder={context.form.confirmPassword}
-													{...fieldProps}
-												/>
-												<ErrorField {...fieldProps} />
-											</>
-										)}
-									</Field>
+								<div>
+
+									<div className="field">
+										<Field name="confirmPassword">
+											{(fieldProps) => (
+												<>
+													<Input
+														required
+														autoComplete="password"
+														type="password"
+														placeholder={context.form.confirmPassword}
+														{...fieldProps}
+													/>
+													<ErrorField {...fieldProps} />
+												</>
+											)}
+										</Field>
+									</div>
+
+									<div className="field type-user-wrapper">
+										<Field name="isChangeTypeOfUser"
+										       type="checkbox"
+										       checked={values.isChangeTypeOfUser}
+										/>
+										<InfoType isChangeTypeOfUser={values.isChangeTypeOfUser} />
+
+									</div>
+
 								</div>
 								: null
 						}
 
 						<div className="remember-wrapper">
-							<Field
-								type="checkbox"
-								name="manual-only"
-								id="manual-only"
-								className="remember-input"
+							<Field name="remember"
+							       type="checkbox"
+							       checked={values.remember}
 							/>
 							<span className="remember">Remember me</span>
 						</div>

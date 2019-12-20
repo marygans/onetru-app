@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from 'react';
+import React, {useRef, useCallback} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {WrapperStyle} from './TopBar.style';
@@ -8,33 +8,20 @@ import Button from '../../lib/Button';
 import {UI_ROUTES} from '../../constants/routes';
 import {useVerticalParallax} from '../../utils/hooks/use-vertical-parallax';
 import {selectIsRootPage} from '../../redux/router/selectors';
-import {selectIsAuth} from '../../redux/profile/selectors';
-import {authActions} from '../../redux/auth/actions';
-import {auth} from '../../firebase';
+import {isLoggedInSelector} from '../../redux/auth/selector';
+import {logout} from '../../redux/auth/actions';
 
 const TopBar = ({ styleClass }) => {
 	let wrapperRef = useRef();
 	const dispatch = useDispatch();
 	const {isRootPage} = useSelector(selectIsRootPage);
-	const {isAuth} = useSelector(selectIsAuth);
+	const {loggedIn} = useSelector(isLoggedInSelector);
 
 	useVerticalParallax(() => wrapperRef.current);
 
-	const signOut = () => {
-		dispatch(authActions.signOut());
-	};
-
-	useEffect(() => {
-		const unsubscribe = auth.onAuthStateChanged(function (user) {
-			if (!!user) {
-				dispatch(authActions.setCredentials(user));
-			} else {
-				signOut();
-			}
-		});
-
-		return () => unsubscribe();
-	}, []);
+	const signOut = useCallback(() => {
+		dispatch(logout());
+	}, [dispatch]);
 
 	return (
 		<WrapperStyle ref={wrapperRef} className={styleClass}>
@@ -49,7 +36,7 @@ const TopBar = ({ styleClass }) => {
 			<div className="right">
 				{
 					isRootPage && (
-						!isAuth ? (
+						!loggedIn ? (
 							<>
 								<Button className="btn header-button">Get Started as Pro</Button>
 								<Link to={UI_ROUTES.signUp} className="link">Sign up</Link>

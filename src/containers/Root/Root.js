@@ -11,7 +11,7 @@ import {selectNotificationData} from '../../redux/notification/selectors';
 import {selectClass} from '../../redux/overlay/selectors';
 
 const Root = () => {
-	const data = useSelector(selectNotificationData);
+	const {data} = useSelector(selectNotificationData);
 	const { styleClass } = useSelector(selectClass);
 
 	return (
