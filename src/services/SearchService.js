@@ -1,15 +1,20 @@
+import {functions} from 'firebase';
+
 import {mockResult} from '../utils/moks/result';
+import {SearchDto} from '../common/dto/search.dto';
 
 class SearchService {
 
-	search = () => {
+	search = (data) => {
 		try {
-			return new Promise((resolve => resolve([...mockResult.slice(0, 4)])));
+			const requestData = new SearchDto(data.search);
+			const searchManagers = functions().httpsCallable('search');
+			return searchManagers(requestData);
 		} catch (e) {
 			console.error(e);
 			return [];
 		}
-	}
+	};
 
 	fetchMoreData = (currentLength) => {
 		try {
@@ -23,6 +28,8 @@ class SearchService {
 			return [];
 		}
 	}
+
+
 }
 
 const Service = new SearchService();

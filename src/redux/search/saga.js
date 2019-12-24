@@ -5,25 +5,50 @@ import actions from './actions';
 import { UI_ROUTES } from '../../constants/routes';
 import {SearchService} from '../../services/SearchService';
 
-import {itemsSelector} from './selectors';
+import {itemsSelector, searchRequestSelector} from './selectors';
+import {reduxSagaFirebase} from '../../firebase/fbConfig';
+import {functions} from 'firebase';
+import {SearchDto} from '../../common/dto/search.dto';
 
 
 function* search({ payload }) {
-	const { search } = payload;
+	try {
+		const { search } = payload;
+		let {data} = yield call(SearchService.search, search);
 
-	let result = yield call(SearchService.search, search);
-	console.log('result', result);
-	yield put(actions.setResult(result));
-	yield put(push(UI_ROUTES.search_results))
+		console.log('result', data);
+		yield put(actions.setResult(data));
+		yield put(actions.setSearchRequest(search));
+		yield put(push(UI_ROUTES.search_results))
+	} catch(e) {
+		console.error('search', e);
+		return null;
+	}
 }
 
 function* fetchMoreData() {
-	const { result } = yield select(itemsSelector);
+	try {
+		const { result } = yield select(itemsSelector);
+		const search = yield select(searchRequestSelector);
 
-	const newResult = yield call(SearchService.fetchMoreData, result.length);
-	yield put(actions.addMoreData(newResult));
+		console.log('search', search);
 
-	newResult.length ? yield put(actions.updateHasMore(true)) : yield put(actions.updateHasMore(false));
+		const data = {
+			...search,
+			currentVisibleCount: result.length,
+		};
+
+		const newResult = yield call(SearchService.getSearch, data);
+		if (newResult.length) {
+			yield put(actions.addMoreData(newResult));
+
+			newResult.length ? yield put(actions.updateHasMore(true)) : yield put(actions.updateHasMore(false));
+		}
+	} catch (e) {
+		console.error('fetchMoreData', e);
+		return null;
+	}
+
 }
 
 export default function* searchSaga() {
