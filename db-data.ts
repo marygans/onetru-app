@@ -129,7 +129,6 @@ export class Company {
         public description: string = descriptionData,
         public responseRate: string[] = responseRateData,
         public responseTime: string = '95%',
-        public createdAt = new String(new Date())
     ) {
     }
 }

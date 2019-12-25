@@ -4,5 +4,6 @@ export const searchConfig = {
         city: "city",
         zip: "zip",
     },
-    limit: 12
+    queryLimit: 2,
+    nextQueryLimit: 4,
 };
