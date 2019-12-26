@@ -6,5 +6,5 @@ export const FIREBASE_API_CONFIG = {
     storageBucket: "test-one-true.appspot.com",
     messagingSenderId: "862666513289",
     appId: "1:862666513289:web:2ea0cd13f3d71424395f58",
-    measurementId: "G-KJ3266GKQ8"
+    measurementId: "G-KJ3266GKQ8",
 };

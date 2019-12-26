@@ -135,7 +135,7 @@ export class Company {
 
 export const COMPANIES = [
     new Company(
-        IMAGES.Company_IMG,
+        IMAGES.ITEM_IMG,
         'Austin Landmark Prop Ser',
         'Full service',
         'MPM®',
@@ -162,7 +162,7 @@ export const COMPANIES = [
         '02109',
     ),
     new Company(
-        IMAGES.Company_IMG_2,
+        IMAGES.ITEM_IMG_2,
         'Meer & Company, Inc.',
         'One service',
         'RMP®',
@@ -189,7 +189,7 @@ export const COMPANIES = [
         '02135',
     ),
     new Company(
-        IMAGES.Company_IMG_3,
+        IMAGES.ITEM_IMG_3,
         'Assured Management, Inc.',
         'Full service',
         'PRO',
@@ -216,7 +216,7 @@ export const COMPANIES = [
         '44123',
     ),
     new Company(
-        IMAGES.Company_IMG,
+        IMAGES.ITEM_IMG_3,
         'Gulf Coast Realty & Management',
         'One service',
         'CRMC®',
@@ -243,7 +243,7 @@ export const COMPANIES = [
         '98107',
     ),
     new Company(
-        IMAGES.Company_IMG_2,
+        IMAGES.ITEM_IMG_2,
         'Pickett Property Management',
         'Full service',
         'CRMC®',
@@ -270,7 +270,7 @@ export const COMPANIES = [
         '98119',
     ),
     new Company(
-        IMAGES.Company_IMG_3,
+        IMAGES.ITEM_IMG,
         'Around The Clock, Inc.',
         'Part service',
         'MPM®',
@@ -297,7 +297,7 @@ export const COMPANIES = [
         '98004',
     ),
     new Company(
-        IMAGES.Company_IMG,
+        IMAGES.ITEM_IMG_3,
         'PRANDI Property Management',
         'Part service',
         'VRBO',
@@ -324,7 +324,7 @@ export const COMPANIES = [
         '33157',
     ),
     new Company(
-        IMAGES.Company_IMG_3,
+        IMAGES.ITEM_IMG_2,
         'Rollingwood Management, Inc.',
         'Full service',
         'VRBO',
@@ -351,7 +351,7 @@ export const COMPANIES = [
         '33133',
     ),
     new Company(
-        IMAGES.Company_IMG_2,
+        IMAGES.ITEM_IMG,
         'Aapex Property Management',
         'One service',
         'RMP®',
@@ -378,7 +378,7 @@ export const COMPANIES = [
         '90036',
     ),
     new Company(
-        IMAGES.Company_IMG,
+        IMAGES.ITEM_IMG,
         'PineCone Properties, Inc.',
         'Full service',
         'VRBO',
@@ -405,7 +405,7 @@ export const COMPANIES = [
         '91311',
     ),
     new Company(
-        IMAGES.Company_IMG_3,
+        IMAGES.ITEM_IMG_2,
         'Professional Property Services',
         'Full service',
         'RMP®',
@@ -432,7 +432,7 @@ export const COMPANIES = [
         '90245',
     ),
     new Company(
-        IMAGES.Company_IMG_2,
+        IMAGES.ITEM_IMG,
         'Allegiant Management Group',
         'Part service',
         'PRO',

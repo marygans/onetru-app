@@ -14,10 +14,11 @@ import {SearchDto} from '../../common/dto/search.dto';
 function* search({ payload }) {
 	try {
 		const { search } = payload;
-		let {data} = yield call(SearchService.search, search);
+		const {data} = yield call(SearchService.search, search);
 
-		console.log('result', data);
-		yield put(actions.setResult(data));
+		const {companies} = data;
+
+		yield put(actions.setResult(companies));
 		yield put(actions.setSearchRequest(search));
 		yield put(push(UI_ROUTES.search_results))
 	} catch(e) {
@@ -30,19 +31,20 @@ function* fetchMoreData() {
 	try {
 		const { result } = yield select(itemsSelector);
 		const search = yield select(searchRequestSelector);
+		const lastItem = result[result.length - 1];
 
-		console.log('search', search);
-
-		const data = {
+		const dataForRequest = {
 			...search,
-			currentVisibleCount: result.length,
+			lastId: lastItem ? lastItem.id : '',
 		};
 
-		const newResult = yield call(SearchService.getSearch, data);
-		if (newResult.length) {
-			yield put(actions.addMoreData(newResult));
+		const {data} = yield call(SearchService.fetchMoreData, dataForRequest);
+		const {companies} = data;
 
-			newResult.length ? yield put(actions.updateHasMore(true)) : yield put(actions.updateHasMore(false));
+		if (companies.length) {
+			yield put(actions.addMoreData(companies));
+
+			companies.length ? yield put(actions.updateHasMore(true)) : yield put(actions.updateHasMore(false));
 		}
 	} catch (e) {
 		console.error('fetchMoreData', e);
