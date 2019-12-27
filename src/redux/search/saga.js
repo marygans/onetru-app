@@ -14,7 +14,7 @@ function* search({ payload }) {
 
 		yield put(actions.setResult(data));
 		yield put(actions.setSearchRequest(search));
-		yield put(actions.updateHasMore(true));
+		!!data.length ? yield put(actions.updateHasMore(true)) : yield put(actions.updateHasMore(false));
 		yield put(push(UI_ROUTES.search_results))
 	} catch(e) {
 		console.error('search', e);
