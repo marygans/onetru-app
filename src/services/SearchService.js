@@ -2,22 +2,21 @@ import {functions} from 'firebase';
 
 class SearchService {
 
-	search = (data) => {
+	search = (search = '') => {
 		try {
 			const searchManagers = functions().httpsCallable('search');
-
-			return searchManagers(data);
+			return searchManagers({search});
 		} catch (e) {
 			console.error(e);
 			return [];
 		}
 	};
 
-	fetchMoreData = (data) => {
+	fetchMoreData = (search = '', lastId = '') => {
 		try {
 			const searchMore = functions().httpsCallable('searchMore');
 
-			return searchMore(data);
+			return searchMore({search, lastId});
 		} catch (e) {
 			console.error(e);
 			return [];

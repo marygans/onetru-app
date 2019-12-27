@@ -5,5 +5,4 @@ export const searchConfig = {
         zip: "zip",
     },
     queryLimit: 2,
-    nextQueryLimit: 4,
 };

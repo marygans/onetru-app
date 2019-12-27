@@ -26,36 +26,36 @@ const database = firebase.database();
 
 async function uploadData() {
 
-    const ref = database.ref().child('companies');
-
-    const updates = COMPANIES.map(async (company: any) => {
-        const newCompanyKey = ref.push().key;
-        const createAt = new String(new Date());
-        const newCompany = {
-            ...company,
-            createAt
-        };
-
-        const updates = {};
-
-        updates['/companies/' + newCompanyKey] = newCompany;
-
-        return database.ref().update(updates);
-    });
-
-    return Promise.all(updates);
-
-    // const batch = firestore.batch();
+    // const ref = database.ref().child('companies');
     //
-    // const companies = firestore.collection('companies');
-    //
-    // COMPANIES.forEach(async (company: any) => {
-    //     await companies.add({
+    // const updates = COMPANIES.map(async (company: any) => {
+    //     const newCompanyKey = ref.push().key;
+    //     const createAt = new String(new Date());
+    //     const newCompany = {
     //         ...company,
-    //     });
+    //         createAt
+    //     };
+    //
+    //     const updates = {};
+    //
+    //     updates['/companies/' + newCompanyKey] = newCompany;
+    //
+    //     return database.ref().update(updates);
     // });
     //
-    // return batch.commit();
+    // return Promise.all(updates);
+
+    const batch = firestore.batch();
+
+    const ref = firestore.collection('companies');
+
+    COMPANIES.forEach(async (company: any) => {
+        await ref.add({
+            ...company,
+        });
+    });
+
+    return batch.commit();
 }
 
 uploadData()
