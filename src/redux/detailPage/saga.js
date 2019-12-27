@@ -1,15 +1,17 @@
 import {all, takeLatest, call, put} from '@redux-saga/core/effects';
 
 import actions from './actions';
-import DetailService from '../../services/DetailService';
+import {reduxSagaFirebase} from '../../firebase/fbConfig';
 
 function* loadDetailData({ payload }) {
     try {
         const { id } = payload;
-        const detailData = yield call(DetailService.loadDetailData, id);
-        const { images } = detailData;
+        const snapshot = yield call(reduxSagaFirebase.firestore.getDocument, 'companies/' + id);
+        const company = snapshot.data();
 
-        yield put(actions.loadDetailSuccess(detailData));
+        const { images } = company;
+
+        yield put(actions.loadDetailSuccess(company));
         yield put(actions.selectImage(images[0]));
     } catch (e) {
         console.error(e);

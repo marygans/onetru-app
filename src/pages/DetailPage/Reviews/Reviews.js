@@ -23,7 +23,7 @@ const Reviews = ({reviews}) => {
 
 								<ReviewerRate disabled
 								              className="rating"
-								              defaultValue={review.rating}
+								              defaultValue={+review.rating}
 								/>
 
 							</div>

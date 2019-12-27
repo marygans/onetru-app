@@ -14,6 +14,7 @@ function* search({ payload }) {
 
 		yield put(actions.setResult(data));
 		yield put(actions.setSearchRequest(search));
+		yield put(actions.updateHasMore(true));
 		yield put(push(UI_ROUTES.search_results))
 	} catch(e) {
 		console.error('search', e);
@@ -27,18 +28,26 @@ function* fetchMoreData() {
 		const {search} = yield select(searchRequestSelector);
 		const lastItem = result[result.length - 1];
 		const lastId = lastItem ? lastItem.id : '';
+		yield sleep(1.5);
 		const {data} = yield call(SearchService.fetchMoreData, search, lastId);
 
-		if (data.length) {
+		if (!!data.length) {
 			yield put(actions.addMoreData(data));
+
+			yield put(actions.updateHasMore(true));
+		} else {
+			yield put(actions.updateHasMore(false));
 		}
 
-		data.length ? yield put(actions.updateHasMore(true)) : yield put(actions.updateHasMore(false));
 	} catch (e) {
 		console.error('fetchMoreData', e);
 		return null;
 	}
 
+}
+
+function sleep(sec) {
+	return new Promise(resolve => setTimeout(resolve, sec*1000));
 }
 
 export default function* searchSaga() {
