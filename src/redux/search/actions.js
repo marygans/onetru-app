@@ -6,6 +6,8 @@ const prefix = '[SEARCH]';
 
 const TYPES = {
 	SEARCH: `${prefix} search`,
+	SET_SEARCH_REQUEST: `${prefix} set search request`,
+
 	SET_RESULT: `${prefix} set result`,
 
 	UPDATE_RESULT_ITEM: `${prefix} update result item`,
@@ -20,6 +22,7 @@ const TYPES = {
 const actions = {
 	...TYPES,
 	search: makeActionCreator(TYPES.SEARCH, 'search'),
+	setSearchRequest: makeActionCreator(TYPES.SET_SEARCH_REQUEST, 'request'),
 	setResult: makeActionCreator(TYPES.SET_RESULT, 'result'),
 	updateItem: makeActionCreator(TYPES.UPDATE_RESULT_ITEM, 'item'),
 	updateItems: makeActionCreator(TYPES.UPDATE_RESULT_ITEMS, 'data'),

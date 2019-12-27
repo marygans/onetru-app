@@ -11,7 +11,9 @@ import rootSaga from './sagas';
 const history         = createBrowserHistory();
 const sagaMiddleware  = createSagaMiddleware();
 const routeMiddleware = routerMiddleware(history);
+
 const middlewares     = [sagaMiddleware, routeMiddleware];
+
 
 const composeEnhancers = (
     !isProduction
@@ -27,6 +29,7 @@ const store = createStore(
         router: connectRouter(history),
     }),
     composeEnhancers(applyMiddleware(...middlewares)),
+
 );
 
 sagaMiddleware.run(rootSaga);

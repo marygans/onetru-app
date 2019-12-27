@@ -10,7 +10,6 @@ import Link from '../../../lib/Link';
 import {UI_ROUTES} from '../../../constants/routes';
 import {useSelector} from 'react-redux';
 import {selectActiveTab} from '../../../redux/tabs/selectors';
-import {Switch} from 'antd';
 import InfoType from './InfoType';
 
 const AuthForm = ({onSubmit, context, isSignUp = false}) => {

@@ -14,6 +14,10 @@ export const FindSectionStyle = styled.div`
 	  color: ${colors.white};
  	  background: ${colors.success};
  	  
+ 	  h1 {
+	    color: ${colors.white};
+ 	  }
+ 	  
  	  .info-wrapper {
  	  	padding-top: 25px;
 	  	padding-bottom: 50px;
