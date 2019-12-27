@@ -35,6 +35,16 @@ export const FormWrapper = styled.div`
 		}
 	}
 	
+	.type-user-wrapper {
+		display: flex;
+    padding: 0px 0 10px;
+   	align-items: center;
+   	
+   	.switch-type-user {
+   		padding-left: 6px;
+   	}
+	}
+	
 	.remember-wrapper {
     display: flex;
     align-items: center;
@@ -53,6 +63,7 @@ export const FormWrapper = styled.div`
 			font-size: 14px;
 			line-height: 16px;
 			color: #3E6373;
+			padding-left: 6px;
 		}
 	}
 	

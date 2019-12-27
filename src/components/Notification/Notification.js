@@ -8,10 +8,10 @@ const Notification = ({ data }) => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		const timer = setTimeout(() => dispatch(notificationActions.hide()), 3500);
+		const timer = setTimeout(() => dispatch(notificationActions.hide()), 4500);
 
 		return () => clearTimeout(timer);
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<NotificationWrapper className={data.type}>

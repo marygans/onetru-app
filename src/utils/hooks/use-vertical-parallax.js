@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import {useCallback, useEffect} from 'react';
 
 function getScrollTop() {
   return window.pageYOffset || document.documentElement.scrollTop;
@@ -20,7 +20,7 @@ function useVerticalParallax(
   getNodeToAnimate,
   getNewTopPosition = defaultGetNewTopPosition,
 ) {
-  const changeTopPosition = () => {
+  const changeTopPosition = useCallback(() => {
     const scrollTop = getScrollTop();
     const heightOfFirstBlock = getHeightFirstBlockOnLandingPage();
     const heightOfHeader = getNodeToAnimate().getBoundingClientRect().height;
@@ -31,7 +31,7 @@ function useVerticalParallax(
       getNodeToAnimate().classList.remove('changed');
     }
 
-  };
+  }, [getNodeToAnimate]);
 
   useEffect(() => {
     window.addEventListener('scroll', changeTopPosition);

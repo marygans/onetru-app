@@ -4,6 +4,12 @@ import {selectActiveFilters} from '../filter/selectors';
 
 const result = ({ Search }) => Search.result;
 const hasMore = ({ Search }) => Search.hasMore;
+const request = ({ Search }) => Search.request;
+
+export const searchRequestSelector = createSelector(
+	[request],
+	(request) => ({...request})
+);
 
 export const itemsSelector = createSelector(
 	[result],

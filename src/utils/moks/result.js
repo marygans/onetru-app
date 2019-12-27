@@ -1,7 +1,5 @@
 import {ICONS, IMAGES} from '../../constants/resources';
 
-const uuidv4 = require('uuid/v4');
-
 class Item {
 	constructor(
 		img = '',
@@ -73,7 +71,6 @@ class Item {
 				message: '% per month',
 			},
 		];
-		this.id = uuidv4();
 		this.images = [
 			'https://images1.apartments.com/i2/AHJm3KMpgTM7mv53CwlGLaLhi4z2IBSaRyrvycaRSLc/111/415-premier-evanston-il-building-photo.jpg',
 			'https://images1.apartments.com/i2/LngsloLt1kY8_ugPKI20arnW4wprv6cNzEfMhZUdI5Y/111/415-premier-evanston-il-building-photo.jpg',

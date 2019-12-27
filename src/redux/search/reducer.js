@@ -4,12 +4,16 @@ import actions from './actions';
 const initState = Immutable.from({
 	result: [],
 	hasMore: true,
+	request: '',
 });
 
 export default function search(state = initState, { type, payload }) {
 	switch (type) {
 		case actions.SET_RESULT: {
 			return Immutable.set(state, 'result', payload.result);
+		}
+		case actions.SET_SEARCH_REQUEST: {
+			return Immutable.set(state, 'request', payload.request);
 		}
 		case actions.UPDATE_RESULT_ITEM: {
 			return Immutable.set(

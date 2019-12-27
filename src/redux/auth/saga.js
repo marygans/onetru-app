@@ -1,104 +1,99 @@
-import {all, takeLatest, call} from '@redux-saga/core/effects';
-import {push} from 'connected-react-router';
+import {all, call, take, takeEvery, fork} from '@redux-saga/core/effects';
 import {put} from 'redux-saga/effects';
 
-import {authActions} from './actions';
-import {AuthService} from '../../services/AuthService';
+import {
+	types,
+	loginSuccess,
+	logoutSuccess,
+	logoutFailure,
+} from './actions';
+import {push} from "connected-react-router";
 import {UI_ROUTES} from '../../constants/routes';
-import profileActions from '../profile/actions';
+import {AuthService} from '../../services/AuthService';
 import {notificationActions} from '../notification/actions';
+import {NotificationTypes} from '../../constants/notification.types';
 
-function* login({payload}) {
+function* loginSaga({credentials}) {
 	try {
-		const {credentials} = payload;
-		const response = yield call(AuthService.login, credentials);
-		const {user: {email, photoURL, displayName, emailVerified}} = response;
+		yield call(AuthService.loginWithEmailAndPassword, credentials);
+	} catch (error) {
+		console.error('loginSaga error', error);
 
-		const data = {
-			email,
-			photoURL,
-			displayName,
-			emailVerified,
-		};
+		if (!!error) yield put(notificationActions.show({...error, type: NotificationTypes.error}));
+		return null;
+	}
+}
+
+function* logoutSaga() {
+	try {
+		yield call(AuthService.signOut)
+	} catch (error) {
+		console.error('logoutSaga error', error);
+
+		if (!!error) yield put(notificationActions.show({...error, type: NotificationTypes.error}));
+		yield put(logoutFailure(error))
+	}
+}
+
+function* loginStatusWatcher() {
+	const channel = yield call(AuthService.authChannel);
+
+	while (true) {
+		const { user } = yield take(channel);
 
 		const notification = {
 			message: 'Login is successful!',
 		};
 
-		yield put(authActions.setCredentials(data));
-		yield put(notificationActions.show({...notification, type: 'successful'}));
-	} catch (e) {
-		console.error(e);
-		return null;
+		if (user) {
+			const response = yield call(AuthService.getUser, user.uid);
+			if (!response) {
+				const newUser = {
+					email: user.email,
+					typeOfUser: 'owner',
+					uid: user.uid,
+				};
+
+				yield call(AuthService.setUserToDb, newUser);
+			}
+			yield put(loginSuccess(user));
+			yield put(notificationActions.show({...notification, type: NotificationTypes.successful}));
+			yield put(push(UI_ROUTES.root));
+		} else {
+			yield put(logoutSuccess());
+		}
+
 	}
 }
 
-function* signUp({payload}) {
+function* registrationSaga({credentials}) {
 	try {
-		const {credentials} = payload;
-		const response = yield call(AuthService.signUp, credentials);
-		const {user: {email, photoURL, displayName, emailVerified}} = response;
+		const typeOfUser = credentials.isChangeTypeOfUser ? 'manager' : 'owner';
 
-		const data = {
-			email,
-			photoURL,
-			displayName,
-			emailVerified,
+		const response = yield call(AuthService.signUpWithEmailAndPassword, credentials);
+
+		const user = {
+			email: credentials.email,
+			password: credentials.password,
+			typeOfUser,
+			uid: response.user.uid,
 		};
 
-		const notification = {
-			message: 'Sign up is successful!',
-		};
+		yield call(AuthService.setUserToDb, user);
+	} catch (error) {
+		console.error('registrationSaga error', error);
 
-		yield put(authActions.setCredentials(data));
-		yield put(notificationActions.show({...notification, type: 'successful'}));
-	} catch (e) {
-		console.error(e);
-		yield put(notificationActions.show({...e, type: 'error'}));
-		return null;
-	}
-
-}
-
-function* signOut() {
-	try {
-		yield call(AuthService.signOut);
-		yield put(profileActions.remove_profile_data());
-		yield put(push(UI_ROUTES.root));
-	} catch (e) {
-		console.error(e);
-		yield put(notificationActions.show({...e, type: 'error'}));
+		if (!!error) yield put(notificationActions.show({...error, type: NotificationTypes.error}));
 		return null;
 	}
 }
 
-function* setCredentials({payload}) {
-	try {
-		const {credentials} = payload;
-		const {email, photoURL, displayName, emailVerified} = credentials;
 
-		const data = {
-			email,
-			photoURL,
-			displayName,
-			emailVerified,
-		};
-
-		yield put(profileActions.update_profile(data));
-		yield put(push(UI_ROUTES.root));
-	} catch (e) {
-		console.error(e);
-		return null;
-	}
-
-
-}
-
-export default function* authSaga() {
+export default function* authRootSaga() {
+	yield fork(loginStatusWatcher)
 	yield all([
-		takeLatest(authActions.LOGIN, login),
-		takeLatest(authActions.SIGN_UP, signUp),
-		takeLatest(authActions.SIGN_OUT, signOut),
-		takeLatest(authActions.SET_CREDENTIALS, setCredentials),
-	]);
+		takeEvery(types.LOGIN.REQUEST, loginSaga),
+		takeEvery(types.REGISTRATION.REQUEST, registrationSaga),
+		takeEvery(types.LOGOUT.REQUEST, logoutSaga),
+	])
 }

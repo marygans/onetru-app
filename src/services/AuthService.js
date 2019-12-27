@@ -1,18 +1,30 @@
-import {auth} from '../firebase';
+import { reduxSagaFirebase } from './../firebase/fbConfig';
 
 class AuthService {
 
-	signUp = ({email, password}) => {
-		return auth.createUserWithEmailAndPassword(email, password);
+	signUpWithEmailAndPassword = ({email, password}) => {
+		return reduxSagaFirebase.auth.createUserWithEmailAndPassword(email, password);
 	};
 
-	login = ({email, password}) => {
-		return auth.signInWithEmailAndPassword(email, password);
+	setUserToDb = ({email, typeOfUser, uid}) => {
+		return reduxSagaFirebase.database.update(`users/${uid}`, { email, typeOfUser, uid });
+	};
+
+	loginWithEmailAndPassword = ({email, password}) => {
+		return reduxSagaFirebase.auth.signInWithEmailAndPassword(email, password);
+	};
+
+	getUser = (uid) => {
+		return reduxSagaFirebase.database.read(`users/${uid}`);
 	};
 
 	signOut = () => {
-		return auth.signOut();
+		return reduxSagaFirebase.auth.signOut();
 	};
+
+	authChannel = () => {
+		return reduxSagaFirebase.auth.channel();
+	}
 
 }
 
