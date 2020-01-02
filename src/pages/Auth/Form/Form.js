@@ -1,5 +1,6 @@
 import React from 'react';
 import {Field, Form, Formik} from 'formik';
+import {useSelector} from 'react-redux';
 
 import {FormWrapper} from './Form.style';
 import Input from '../../../lib/Input/Input';
@@ -8,18 +9,16 @@ import {signInSchema, signUpSchema} from '../../../utils/validators/auth';
 import ErrorField from './ErrorField/ErrorField';
 import Link from '../../../lib/Link';
 import {UI_ROUTES} from '../../../constants/routes';
-import {useSelector} from 'react-redux';
 import {selectActiveTab} from '../../../redux/tabs/selectors';
-import InfoType from './InfoType';
 
-const AuthForm = ({onSubmit, context, isSignUp = false}) => {
+const AuthForm = ({onSubmit, context, isSignUp = false, children}) => {
 	const { activeTab } = useSelector(selectActiveTab);
 
 	const initValues = {
 		email: '',
+		name: '',
 		password: '',
 		remember: false,
-		isChangeTypeOfUser: false,
 	};
 
 	const initValuesSignUp = {
@@ -35,11 +34,12 @@ const AuthForm = ({onSubmit, context, isSignUp = false}) => {
 				validationSchema={isSignUp ? signUpSchema : signInSchema}
 				onSubmit={onSubmit}
 			>
-				{({values}) => (
+				{
+					({values}) => (
 					<Form id="login-form">
-						<h1>
-							{context.title}
-						</h1>
+						<>
+							{children}
+						</>
 
 						<div className="describe">
 							{context.mobile[activeTab].title}
@@ -53,7 +53,7 @@ const AuthForm = ({onSubmit, context, isSignUp = false}) => {
 											<Input
 												required
 												autoComplete="email"
-												placeholder={context.form.email}
+												placeholder={context.form.email[activeTab] ? context.form.email[activeTab] : context.form.email}
 												{...fieldProps}
 											/>
 											<ErrorField {...fieldProps} />
@@ -62,7 +62,27 @@ const AuthForm = ({onSubmit, context, isSignUp = false}) => {
 								}
 							</Field>
 						</div>
-
+						{
+							isSignUp ?
+								<div className="field">
+									<Field name="name">
+										{
+											(fieldProps) => (
+												<>
+													<Input
+														required
+														type="text"
+														placeholder={context.form.name[activeTab]}
+														{...fieldProps}
+													/>
+													<ErrorField {...fieldProps} />
+												</>
+											)
+										}
+									</Field>
+								</div>
+								: null
+						}
 						<div className="field">
 							<Field name="password">
 								{(fieldProps) => (
@@ -99,15 +119,6 @@ const AuthForm = ({onSubmit, context, isSignUp = false}) => {
 												</>
 											)}
 										</Field>
-									</div>
-
-									<div className="field type-user-wrapper">
-										<Field name="isChangeTypeOfUser"
-										       type="checkbox"
-										       checked={values.isChangeTypeOfUser}
-										/>
-										<InfoType isChangeTypeOfUser={values.isChangeTypeOfUser} />
-
 									</div>
 
 								</div>

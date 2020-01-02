@@ -13,7 +13,6 @@ import AuthNavigation from '../Navigation/AuthNavigation';
 import Button from '../../../lib/Button/Button';
 import {UI_ROUTES} from '../../../constants/routes';
 import Link from '../../../lib/Link';
-import Tabs from '../Tabs/Tabs';
 import {selectIsOpenGuestModal} from '../../../redux/guestModal/selectors';
 import GuestModal from '../GuestModal/GuestModal';
 import {guestModalActions} from '../../../redux/guestModal/actions';
@@ -47,32 +46,38 @@ const Login = () => {
 	return (
 		<AuthNavigation>
 			{
-				isOpen ? <GuestModal /> : <Tabs />
+				isOpen ? <GuestModal /> : null
 			}
 
-			<AuthWrapper>
+			<div className="body">
 
-				<div className="link-mobile-wrapper">
-					<Link to={UI_ROUTES.signUp} className="link sign-up">{SIGN_IN.mobile.footer.link}</Link>
-				</div>
+				<h1>{SIGN_IN.title}</h1>
 
-				<Button className="btn browse-as-guest" onClick={onOpenGuestModal}>
-					<span>Browse as Guest</span>
-				</Button>
+				<AuthWrapper>
 
-				<StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
-
-				<div className="circleWrapper">
-					<div className="circle">
-						<div>OR</div>
+					<div className="link-mobile-wrapper">
+						<Link to={UI_ROUTES.signUp} className="link sign-up">{SIGN_IN.mobile.footer.link}</Link>
 					</div>
-				</div>
 
-				<AuthForm
-					onSubmit={handleSignIn}
-					context={SIGN_IN}
-				/>
-			</AuthWrapper>
+					<Button className="btn browse-as-guest" onClick={onOpenGuestModal}>
+						<span>Browse as Guest</span>
+					</Button>
+
+					<StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+
+					<div className="circleWrapper">
+						<div className="circle">
+							<div>OR</div>
+						</div>
+					</div>
+
+					<AuthForm
+						onSubmit={handleSignIn}
+						context={SIGN_IN}
+					/>
+				</AuthWrapper>
+
+			</div>
 		</AuthNavigation>
 
 	)

@@ -7,6 +7,7 @@ export const FormWrapper = styled.div`
   width: 230px;
 	
 	h1 {
+		display: none;
 		padding-top: 27px;
     padding-bottom: 20px;
 		font-style: normal;
@@ -121,6 +122,7 @@ export const FormWrapper = styled.div`
 				}
 			}
 		}
+		
 	}
 	
 	@media ${device.mobileXL} {
@@ -128,6 +130,7 @@ export const FormWrapper = styled.div`
 		padding: 0 23px;
 		
 		h1 {
+			display: block;
 			font-weight: 500;
 			font-size: 36px;
 			line-height: 42px;
