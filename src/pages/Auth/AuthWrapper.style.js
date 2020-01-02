@@ -8,15 +8,9 @@ const { AUTH } = ICONS;
 export const AuthWrapper = styled.div`
  	position: relative;
   width: 710px;
-  background: #FFFFFF;
-  border: 1px solid #DCDCDC;
-  box-sizing: border-box;
-  box-shadow: 0px 2px 4px #DCDCDC;
-  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 40px 15px;
   
   .link-mobile-wrapper {
   	display: none;

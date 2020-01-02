@@ -1,4 +1,4 @@
-import {all, call, take, takeEvery, fork} from '@redux-saga/core/effects';
+import {all, call, take, takeEvery, fork, select} from '@redux-saga/core/effects';
 import {put} from 'redux-saga/effects';
 
 import {
@@ -12,6 +12,7 @@ import {UI_ROUTES} from '../../constants/routes';
 import {AuthService} from '../../services/AuthService';
 import {notificationActions} from '../notification/actions';
 import {NotificationTypes} from '../../constants/notification.types';
+import {selectActiveTab} from '../tabs/selectors';
 
 function* loginSaga({credentials}) {
 	try {
@@ -68,7 +69,22 @@ function* loginStatusWatcher() {
 
 function* registrationSaga({credentials}) {
 	try {
-		const typeOfUser = credentials.isChangeTypeOfUser ? 'manager' : 'owner';
+		const {activeTab} = yield select(selectActiveTab);
+		let typeOfUser = 'owner';
+
+		switch (activeTab) {
+			case 'landlord': {
+				typeOfUser = 'owner';
+				break;
+			}
+
+			case 'property_manager': {
+				typeOfUser = 'manager';
+				break;
+			}
+
+			default: break;
+		}
 
 		const response = yield call(AuthService.signUpWithEmailAndPassword, credentials);
 

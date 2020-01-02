@@ -22,8 +22,8 @@ import {signUpWithEmailAndPassword} from '../../../redux/auth/actions';
 
 const SignUp = () => {
 	const dispatch = useDispatch();
-	const { SIGN_UP } = CONTEXT;
-	const { isOpen } = useSelector(selectIsOpenGuestModal);
+	const {SIGN_UP} = CONTEXT;
+	const {isOpen} = useSelector(selectIsOpenGuestModal);
 
 	const handleSignUp = (values, actions) => {
 		const credentials = {
@@ -46,37 +46,51 @@ const SignUp = () => {
 
 	return (
 		<AuthNavigation>
+
 			{
-				isOpen ? <GuestModal /> : <Tabs />
+				isOpen ? <GuestModal/> : 	<Tabs className="tabs mobile" />
+
 			}
 
-			<AuthWrapper>
-				<div className="link-mobile-wrapper">
-					<Link to={UI_ROUTES.login} className="link sign-up">{SIGN_UP.footer.link}</Link>
-				</div>
+			<div className="body">
 
-				<Button className="btn browse-as-guest" onClick={onOpenGuestModal}>
-					<span>Browse as Guest</span>
-				</Button>
+				<h1>{SIGN_UP.title}</h1>
 
-				<StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
-
-				<div className="circleWrapper">
-					<div className="circle">
-						<div>OR</div>
+				<AuthWrapper>
+					<div className="link-mobile-wrapper">
+						<Link to={UI_ROUTES.login} className="link sign-up">{SIGN_UP.footer.link}</Link>
 					</div>
-				</div>
 
-				<AuthForm
-					onSubmit={handleSignUp}
-					context={SIGN_UP}
-					isSignUp={true}
-				/>
-			</AuthWrapper>
+					<Button className="btn browse-as-guest" onClick={onOpenGuestModal}>
+						<span>Browse as Guest</span>
+					</Button>
+
+					<StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
+
+					<div className="circleWrapper">
+						<div className="circle">
+							<div>OR</div>
+						</div>
+					</div>
+
+					<div className="auth-wrapper">
+						<AuthForm
+							onSubmit={handleSignUp}
+							context={SIGN_UP}
+							isSignUp={true}
+						>
+							<Tabs className="tabs desktop" />
+						</AuthForm>
+					</div>
+
+				</AuthWrapper>
+
+			</div>
+
 
 		</AuthNavigation>
 	);
 };
 
 export default SignUp;
-export { SignUp };
+export {SignUp};

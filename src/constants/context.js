@@ -139,7 +139,7 @@ export const CONTEXT = {
 		]
 	},
 	SIGN_IN: {
-		title: 'Sign in manually',
+		title: 'Sign in',
 		button: 'SIGN IN',
 		form: {
 			email: 'Email',
@@ -158,12 +158,19 @@ export const CONTEXT = {
 		}
 	},
 	SIGN_UP: {
-		title: 'Sign up manually',
+		title: 'Sign up',
 		button: 'SIGN UP',
 		form: {
-			email: 'Email',
+			email: {
+				property_manager: 'Company email',
+				landlord: 'Email',
+			},
 			password: 'Password',
 			confirmPassword: 'Confirm password',
+			name: {
+				property_manager: 'Company name',
+				landlord: 'Username',
+			},
 		},
 		mobile: {
 			landlord: {
@@ -181,11 +188,11 @@ export const CONTEXT = {
 		data: [
 			{
 				key: 'landlord',
-				value: 'landlord',
+				value: 'Personal',
 			},
 			{
 				key: 'property_manager',
-				value: 'Property Manager',
+				value: 'Company',
 			},
 		],
 	},
