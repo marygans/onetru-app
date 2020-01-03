@@ -6,8 +6,8 @@ class AuthService {
 		return reduxSagaFirebase.auth.createUserWithEmailAndPassword(email, password);
 	};
 
-	setUserToDb = ({email, typeOfUser, uid}) => {
-		return reduxSagaFirebase.database.update(`users/${uid}`, { email, typeOfUser, uid });
+	setUserToDb = ({email, name, typeOfUser, uid}) => {
+		return reduxSagaFirebase.database.update(`users/${uid}`, { email, name, typeOfUser, uid });
 	};
 
 	loginWithEmailAndPassword = ({email, password}) => {

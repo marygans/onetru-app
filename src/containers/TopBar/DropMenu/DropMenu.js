@@ -33,9 +33,12 @@ const menu = (signOut) => {
 const DropMenu = ({user, signOut}) => {
 
 	return (
-		<DropMenuStyle overlay={() => menu(signOut)} trigger={['click']} >
-			<AvatarStyle  size={55} icon="user" src={user.photoURL} />
-		</DropMenuStyle>
+		<>
+			<span>{user.displayName}</span>
+			<DropMenuStyle overlay={() => menu(signOut)} trigger={['click']} >
+				<AvatarStyle  size={55} icon="user" src={user.photoURL} />
+			</DropMenuStyle>
+		</>
 	);
 
 };

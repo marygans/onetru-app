@@ -1,7 +1,7 @@
 import React, {useRef, useCallback} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {AvatarStyle, WrapperStyle} from './TopBar.style';
+import {WrapperStyle} from './TopBar.style';
 import Link from '../../lib/Link';
 import Button from '../../lib/Button';
 
