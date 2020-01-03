@@ -10,8 +10,11 @@ import {itemsSelector, searchRequestSelector} from './selectors';
 function* search({ payload }) {
 	try {
 		const { search } = payload;
+
+		yield put(actions.updateLoadingStatus(true));
 		const {data} = yield call(SearchService.search, search.search);
 
+		yield put(actions.updateLoadingStatus(false));
 		yield put(actions.setResult(data));
 		yield put(actions.setSearchRequest(search));
 		yield put(actions.updateHasMore(true));
@@ -28,8 +31,12 @@ function* fetchMoreData() {
 		const {search} = yield select(searchRequestSelector);
 		const lastItem = result[result.length - 1];
 		const lastId = lastItem ? lastItem.id : '';
+
 		yield sleep(1.5);
+		yield put(actions.updateLoadingStatus(true ));
 		const {data} = yield call(SearchService.fetchMoreData, search, lastId);
+
+		yield put(actions.updateLoadingStatus(false));
 
 		if (!!data.length) {
 			yield put(actions.addMoreData(data));

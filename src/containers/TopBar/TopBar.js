@@ -1,21 +1,23 @@
 import React, {useRef, useCallback} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {WrapperStyle} from './TopBar.style';
+import {AvatarStyle, WrapperStyle} from './TopBar.style';
 import Link from '../../lib/Link';
 import Button from '../../lib/Button';
 
 import {UI_ROUTES} from '../../constants/routes';
 import {useVerticalParallax} from '../../utils/hooks/use-vertical-parallax';
 import {selectIsRootPage} from '../../redux/router/selectors';
-import {isLoggedInSelector} from '../../redux/auth/selector';
+import {isLoggedInSelector, userSelector} from '../../redux/auth/selector';
 import {logout} from '../../redux/auth/actions';
+import {DropMenu} from './DropMenu';
 
 const TopBar = ({ styleClass }) => {
 	let wrapperRef = useRef();
 	const dispatch = useDispatch();
 	const {isRootPage} = useSelector(selectIsRootPage);
 	const {loggedIn} = useSelector(isLoggedInSelector);
+	const {user} = useSelector(userSelector);
 
 	useVerticalParallax(() => wrapperRef.current);
 
@@ -44,8 +46,9 @@ const TopBar = ({ styleClass }) => {
 							</>
 						) : (
 							<>
-								<Button className="btn link sign-out" onClick={signOut}>Sign out</Button>
+								<DropMenu user={user} signOut={signOut} />
 							</>
+
 						)
 					)
 				}

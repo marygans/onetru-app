@@ -170,3 +170,6 @@ export const WrapperStyle = styled.div`
   }
   
 `;
+
+
+

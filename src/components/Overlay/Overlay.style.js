@@ -4,7 +4,7 @@ import {OVERLAY_STYLE_CLASSES} from '../../constants/overlay';
 import {device} from '../../constants/devise';
 
 export const OverlayWrapper = styled.div`
-		position: absolute;
+		position: fixed;
     top: 0;
     left: 0;
     height: 100%;

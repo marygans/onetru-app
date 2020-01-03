@@ -55,7 +55,12 @@ const Result = () => {
 				hasMore={hasMore}
 			/>
 			{
-				data.length ? <CompareContent data={data} onResetCompare={onResetCompare} showCompareMenu={showCompareMenu} /> : null
+				data.length ?
+					<CompareContent
+						data={data}
+						onResetCompare={onResetCompare}
+						showCompareMenu={showCompareMenu}
+					/> : null
 			}
 			{
 				isShow ? <CompareModal data={data} closeCompareMenu={closeCompareMenu} /> : null

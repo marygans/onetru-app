@@ -9,13 +9,19 @@ import Overlay from '../../components/Overlay/Overlay';
 import Notification from '../../components/Notification/Notification';
 import {selectNotificationData} from '../../redux/notification/selectors';
 import {selectClass} from '../../redux/overlay/selectors';
+import {loadingStatusSelector} from '../../redux/search/selectors';
+import Spinner from '../../components/Spinner/Spinner';
 
 const Root = () => {
 	const {data} = useSelector(selectNotificationData);
 	const { styleClass } = useSelector(selectClass);
+	const { isLoading } = useSelector(loadingStatusSelector);
 
 	return (
 		<>
+			{
+				isLoading ? <Spinner /> : null
+			}
 			{
 				data ? <Notification data={data}/> : null
 			}
