@@ -5,6 +5,7 @@ import {selectActiveFilters} from '../filter/selectors';
 const result = ({ Search }) => Search.result;
 const hasMore = ({ Search }) => Search.hasMore;
 const request = ({ Search }) => Search.request;
+const isLoading = ({ Search }) => Search.isLoading;
 
 export const searchRequestSelector = createSelector(
 	[request],
@@ -48,4 +49,9 @@ export const isSelectResult = createSelector(
 export const selectHasMoreItems = createSelector(
 	[hasMore],
 	(hasMore) => ({hasMore})
+);
+
+export const loadingStatusSelector = createSelector(
+	[isLoading],
+	(isLoading) => ({ isLoading })
 );

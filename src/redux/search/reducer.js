@@ -5,6 +5,7 @@ const initState = Immutable.from({
 	result: [],
 	hasMore: true,
 	request: '',
+	isLoading: false,
 });
 
 export default function search(state = initState, { type, payload }) {
@@ -45,6 +46,9 @@ export default function search(state = initState, { type, payload }) {
 
 		case actions.UPDATE_HAS_MORE: {
 			return Immutable.set(state, 'hasMore', payload.hasMore);
+		}
+		case actions.UPDATE_LOADING_STATUS: {
+			return Immutable.set(state, 'isLoading', payload.isLoading);
 		}
 		default: {
 			return state;

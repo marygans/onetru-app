@@ -48,9 +48,11 @@ function* loginStatusWatcher() {
 
 		if (user) {
 			const response = yield call(AuthService.getUser, user.uid);
+
 			if (!response) {
 				const newUser = {
 					email: user.email,
+					displayName: user.displayName,
 					typeOfUser: 'owner',
 					uid: user.uid,
 				};
@@ -90,6 +92,7 @@ function* registrationSaga({credentials}) {
 
 		const user = {
 			email: credentials.email,
+			name: credentials.name,
 			password: credentials.password,
 			typeOfUser,
 			uid: response.user.uid,

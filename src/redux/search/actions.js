@@ -17,6 +17,8 @@ const TYPES = {
 	ADD_MORE_DATA: `${prefix} add more data`,
 
 	UPDATE_HAS_MORE: `${prefix} update has more`,
+
+	UPDATE_LOADING_STATUS: `${prefix} Set loading status`,
 };
 
 const actions = {
@@ -29,6 +31,7 @@ const actions = {
 	fetchMoreData: makeActionCreator(TYPES.FETCH_MORE_DATA),
 	addMoreData: makeActionCreator(TYPES.ADD_MORE_DATA, 'result'),
 	updateHasMore: makeActionCreator(TYPES.UPDATE_HAS_MORE, 'hasMore'),
+	updateLoadingStatus: makeActionCreator(TYPES.UPDATE_LOADING_STATUS, 'isLoading'),
 };
 
 export default actions;
