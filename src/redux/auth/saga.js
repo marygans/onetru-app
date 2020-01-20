@@ -52,7 +52,7 @@ function* loginStatusWatcher() {
 			if (!response) {
 				const newUser = {
 					email: user.email,
-					displayName: user.displayName,
+					name: user.displayName,
 					typeOfUser: 'owner',
 					uid: user.uid,
 				};
